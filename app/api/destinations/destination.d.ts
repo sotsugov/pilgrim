@@ -2,7 +2,7 @@ export type Destination = {
   id: number;
   title?: string;
   description: string;
-  options?: {
+  options: {
     text: string;
     destination: number;
     requirements: string[];

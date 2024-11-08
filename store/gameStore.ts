@@ -9,6 +9,10 @@ type GameState = {
   history: Record<string, any>[];
   setBoard: (board: number) => void;
   setStep: (step: number) => void;
+  setEffects: (effects: string[]) => void;
+  setBoardHistory: (boardHistory: number[]) => void;
+  setOptionHistory: (optionHistory: number[]) => void;
+  setHistory: (history: Record<string, any>[]) => void;
   addEffect: (effect: string) => void;
   addToBoardHistory: (board: number) => void;
   addToOptionHistory: (option: number) => void;
@@ -25,6 +29,10 @@ export const useGameStore = create<GameState>((set) => ({
   history: [{}],
   setBoard: (board) => set({ board }),
   setStep: (step) => set({ step }),
+  setEffects: (effects) => set({ effects }),
+  setBoardHistory: (boardHistory) => set({ boardHistory }),
+  setOptionHistory: (optionHistory) => set({ optionHistory }),
+  setHistory: (history) => set({ history }),
   addEffect: (effect) =>
     set((state) => ({ effects: [...state.effects, effect] })),
   addToBoardHistory: (board) =>

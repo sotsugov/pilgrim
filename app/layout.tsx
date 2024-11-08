@@ -3,15 +3,15 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
 
-const figtree = localFont({
-  src: './fonts/Figtree-VariableFont_wght.ttf',
-  variable: '--font-figtree',
+const sans = localFont({
+  src: './fonts/HostGrotesk-VariableFont_wght.ttf',
+  variable: '--font-sans',
   weight: '100 900',
 });
 
-const modelo = localFont({
+const title = localFont({
   src: './fonts/Modelo-Thin.woff',
-  variable: '--font-modelo',
+  variable: '--font-title',
   display: 'swap',
 });
 
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${figtree.variable} ${modelo.variable}`}
+      className={`${sans.variable} ${title.variable}`}
       suppressHydrationWarning
     >
       <body className="font-sans antialiased bg-background text-foreground">

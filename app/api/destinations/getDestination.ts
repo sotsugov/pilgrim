@@ -68,13 +68,13 @@ export const Destinations: Destination[] = [
         effects: ['LOGIC', 'ANALYTICAL'],
       },
       {
-        text: "[SCHOLAR] Perhaps there's a scientific explanation for these visions. The neural pathways responsible for memory formation...",
+        text: "Perhaps there's a scientific explanation for these visions. The neural pathways responsible for memory formation...",
         destination: 4,
         requirements: ['SCHOLAR'],
         effects: ['RATIONALIST'],
       },
       {
-        text: "[NIHILIST] What does it matter? Dreams, reality—they're all constructs of a meaningless existence.",
+        text: "What does it matter? Dreams, reality—they're all constructs of a meaningless existence.",
         destination: 4,
         requirements: ['NIHILIST'],
         effects: ['CYNICAL'],
@@ -101,13 +101,13 @@ export const Destinations: Destination[] = [
         effects: [],
       },
       {
-        text: "[VETERAN] Assess the tactical situation—look for weaknesses in the cell's construction",
+        text: "Assess the tactical situation—look for weaknesses in the cell's construction",
         destination: 5,
         requirements: ['VETERAN'],
         effects: ['TACTICAL'],
       },
       {
-        text: "[SCHOLAR] Analyse the water's source and flow pattern",
+        text: "Analyse the water's source and flow pattern",
         destination: 7,
         requirements: ['SCHOLAR'],
         effects: ['OBSERVANT'],
@@ -134,13 +134,13 @@ export const Destinations: Destination[] = [
         effects: [],
       },
       {
-        text: '[VOLITION] Attempt to break out—no cell is completely secure',
+        text: 'Attempt to break out—no cell is completely secure',
         destination: 8,
         requirements: ['VOLITION'],
         effects: ['DETERMINED'],
       },
       {
-        text: '[LOGIC] Calculate the rate of water rise and remaining air pocket time',
+        text: 'Calculate the rate of water rise and remaining air pocket time',
         destination: 7,
         requirements: ['LOGIC'],
         effects: ['CALCULATING'],
@@ -161,13 +161,13 @@ export const Destinations: Destination[] = [
         effects: ['ATTENTIVE'],
       },
       {
-        text: '[SCHOLAR/LOGIC] The sound pattern suggests a periodic mechanism—perhaps tied to the water system',
+        text: 'The sound pattern suggests a periodic mechanism—perhaps tied to the water system',
         destination: 11,
         requirements: ['SCHOLAR', 'LOGIC'],
         effects: ['INSIGHT'],
       },
       {
-        text: '[PACIFIST] Remain calm and conserve energy—panic will only make things worse',
+        text: 'Remain calm and conserve energy—panic will only make things worse',
         destination: 12,
         requirements: ['PACIFIST'],
         effects: ['COMPOSED'],

@@ -52,8 +52,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['var(--font-figtree)'],
-        logo: ['var(--font-modelo)'],
+        sans: ['var(--font-sans)'],
+        logo: ['var(--font-title)'],
       },
       borderRadius: {
         lg: 'var(--radius)',
