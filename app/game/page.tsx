@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import {
   Card,
@@ -35,7 +35,6 @@ export default function GameScreen() {
 
   const currentDestination = Destinations.find((dest) => dest.id === board);
 
-  // Create current state string for comparison
   const currentStateString = JSON.stringify({
     board,
     effects,
@@ -44,8 +43,28 @@ export default function GameScreen() {
     history,
   });
 
-  // Check if state has changed since last save
   const hasStateChanged = currentStateString !== lastSavedState;
+
+  // Wrap meetsRequirements in useCallback
+  const meetsRequirements = useCallback(
+    (requirements: string[]) => {
+      if (!requirements.length) return true;
+      return requirements.every((req) => effects.includes(req));
+    },
+    [effects],
+  );
+
+  // Wrap handleOptionClick in useCallback
+  const handleOptionClick = useCallback(
+    (option: Destination['options'][0]) => {
+      setBoard(option.destination);
+      addToBoardHistory(option.destination);
+      addToOptionHistory(option.destination);
+      option.effects.forEach((effect) => addEffect(effect));
+      setSaveId(null);
+    },
+    [setBoard, addToBoardHistory, addToOptionHistory, addEffect],
+  );
 
   useEffect(() => {
     if (currentDestination) {
@@ -53,14 +72,26 @@ export default function GameScreen() {
     }
   }, [board, addToHistory, currentDestination]);
 
-  const handleOptionClick = (option: Destination['options'][0]) => {
-    setBoard(option.destination);
-    addToBoardHistory(option.destination);
-    addToOptionHistory(option.destination);
-    option.effects.forEach((effect) => addEffect(effect));
-    // Clear save ID when state changes
-    setSaveId(null);
-  };
+  // Keyboard handler effect
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      const keyNumber = parseInt(event.key);
+      if (!isNaN(keyNumber)) {
+        const filteredOptions = currentDestination?.options.filter((option) =>
+          meetsRequirements(option.requirements),
+        );
+        const selectedOption = filteredOptions?.[keyNumber - 1];
+        if (selectedOption) {
+          handleOptionClick(selectedOption);
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [currentDestination, meetsRequirements, handleOptionClick]);
 
   const handleSaveGame = async () => {
     const gameState = {
@@ -84,12 +115,6 @@ export default function GameScreen() {
     } catch (error) {
       console.error('Failed to save game:', error);
     }
-  };
-
-  // Check if all requirements are met for an option, hide it otherwise
-  const meetsRequirements = (requirements: string[]) => {
-    if (!requirements.length) return true;
-    return requirements.every((req) => effects.includes(req));
   };
 
   if (!currentDestination) {
@@ -182,7 +207,9 @@ export default function GameScreen() {
                   scroll={false}
                 >
                   <div>
-                    <span className="font-bold mr-2">{index + 1}.</span>
+                    <span className="font-bold mr-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-accent/20 text-sm">
+                      {index + 1}
+                    </span>
                     {option.requirements.length > 0 && (
                       <span className="text-sm text-emerald-400 mr-2">
                         [{option.requirements.join(', ')}]
