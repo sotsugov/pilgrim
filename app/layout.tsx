@@ -1,24 +1,24 @@
-import { ThemeProvider } from '@/components/theme-provider';
-import type { Metadata } from 'next';
-import localFont from 'next/font/local';
-import './globals.css';
+import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
 
 const sans = localFont({
-  src: './fonts/RethinkSans-VariableFont_wght.ttf',
-  variable: '--font-sans',
-  weight: '100 900',
+  src: "./fonts/RethinkSans-VariableFont_wght.ttf",
+  variable: "--font-sans",
+  weight: "100 900",
 });
 
 const title = localFont({
-  src: './fonts/Modelo-Thin.woff',
-  variable: '--font-title',
-  display: 'swap',
+  src: "./fonts/Modelo-Thin.woff",
+  variable: "--font-title",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: 'Pilgrim',
-  description: 'CYOA: Delve Deep. Decipher the Unknown. Determine Your Fate.',
-  creator: 'Igor Sotsugov',
+  title: "Pilgrim",
+  description: "CYOA: Delve Deep. Decipher the Unknown. Determine Your Fate.",
+  creator: "Igor Sotsugov",
 };
 
 export default function RootLayout({
@@ -39,9 +39,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-            <main className="flex flex-col gap-6 row-start-2 items-center">
-              {children}
+          <div className="flex flex-col min-h-screen">
+            <main className="flex-grow flex items-center justify-center p-6">
+              <div className="max-w-[80ch] w-full">{children}</div>
             </main>
             <Footer />
           </div>
@@ -53,7 +53,7 @@ export default function RootLayout({
 
 function Footer() {
   return (
-    <footer className="row-start-3 flex gap-6 flex-wrap items-center text-center">
+    <footer className="flex flex-col py-6 mt-auto items-center text-center">
       <a
         className="uppercase font-semibold tracking-tight no-underline text-xs text-muted-foreground/60 hover:text-foreground transition-colors"
         href="https://isv.ee"

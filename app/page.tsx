@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useGameStore } from '@/store/gameStore';
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useGameStore } from "@/store/gameStore";
 
 export default function Home() {
   const router = useRouter();
@@ -22,12 +22,12 @@ export default function Home() {
     event.preventDefault();
     setRestoreError(null);
     const formData = new FormData(event.currentTarget);
-    const id = formData.get('state') as string;
+    const id = formData.get("state") as string;
     if (id) {
       try {
         const response = await fetch(`/api/gamestate?id=${id}`);
         if (!response.ok) {
-          throw new Error('Failed to restore game state');
+          throw new Error("Failed to restore game state");
         }
         const { gameState } = await response.json();
         setBoard(gameState.board);
@@ -35,25 +35,25 @@ export default function Home() {
         setBoardHistory(gameState.boardHistory);
         setOptionHistory(gameState.optionHistory);
         setHistory(gameState.history);
-        router.push('/game');
+        router.push("/game");
       } catch (error) {
-        console.error('Failed to restore game state:', error);
+        console.error("Failed to restore game state:", error);
         setRestoreError(
-          'Failed to restore game state. Please check your save code.',
+          "Failed to restore game state. Please check your save code.",
         );
       }
     } else {
-      setRestoreError('Please enter a save code.');
+      setRestoreError("Please enter a save code.");
     }
   };
 
   const handleNewGame = () => {
     resetGame();
-    router.push('/game');
+    router.push("/game");
   };
 
   return (
-    <div className="flex flex-col gap-6 row-start-2 items-center text-center">
+    <div className="flex flex-col gap-6 items-center text-center">
       <div>
         <div className="font-logo text-[6rem] -tracking-[0.5rem] [text-shadow:_0_0_2px_#ffffff,_0_0_5px_#6366f1]">
           PILGRIM
@@ -74,7 +74,7 @@ export default function Home() {
         </Button>
       </div>
 
-      <div className="flex flex-col items-center gap-3 pt-12">
+      <div className="flex flex-col items-center gap-3 pt-6">
         <span className="text-muted-foreground/50">
           If you already have a save code, you can continue from the save point
         </span>
