@@ -144,7 +144,7 @@ export default function GameScreen() {
 
   if (!currentDestination) {
     return (
-      <div className="container mx-auto p-4">
+      <div className="container mx-auto py-8">
         <Card className="w-full max-w-2xl mx-auto">
           <CardHeader>
             <CardTitle>Error</CardTitle>
@@ -172,7 +172,7 @@ export default function GameScreen() {
   }
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-2xl mx-auto py-8">
       <header className="py-6 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center px-4">
         <div className="flex flex-wrap gap-2">
           <Link href="/">
@@ -194,7 +194,7 @@ export default function GameScreen() {
 
       <Card className="mx-4">
         <CardHeader className="space-y-4">
-          <CardTitle className="text-muted-foreground">
+          <CardTitle className="text-muted-foreground tracking-normal">
             {currentDestination.title || `Fragment ${board}`}
           </CardTitle>
           <CardDescription className="text-base text-foreground">
@@ -239,31 +239,28 @@ export default function GameScreen() {
 
         <Separator />
 
-        <CardFooter className="flex flex-col items-start py-4 text-sm">
-          <div className="text-muted-foreground">
-            <div className="break-words">Effects: {effects.length}</div>
+        <CardFooter className="flex flex-col items-start py-4">
+          <div className="text-muted flex flex-row items-center justify-between gap-x-2">
             <div>Steps: {history.length - 1}</div>
+            <span className="text-border">•</span>
+            <div className="break-words">Effects: {effects.length}</div>
           </div>
-          <div className="w-full flex items-center gap-x-1 py-2">
+          <div className="w-full flex items-center gap-x-2">
             <span className="text-muted-foreground">Save Code:</span>
             <div className="flex items-center gap-2">
               {isLoading ? (
                 <Skeleton className="h-4 w-[64px]" />
               ) : (
-                <span className="">{saveId}</span>
+                <span className="tracking-wide">{saveId}</span>
               )}
               <Button
-                size="icon"
+                size="sm"
                 variant="secondary"
                 className="h-6 w-6"
                 onClick={copyToClipboard}
                 disabled={isLoading || !saveId}
               >
-                {copied ? (
-                  <Check className="size-4" />
-                ) : (
-                  <Clipboard className="size-4" />
-                )}
+                {copied ? <Check /> : <Clipboard />}
                 <span className="sr-only">Copy save code</span>
               </Button>
             </div>
