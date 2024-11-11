@@ -632,7 +632,7 @@ export const Destinations: Destination[] = [
   {
     id: 28,
     description:
-      "You shout over the noise, demanding to know what's happening. The figures exchange glances. One steps forward and says, 'You're not supposed to be awake. This complicates things.' Before you can respond, they raise a device, and everything goes black.",
+      "You shout over the noise, demanding to know what's happening. The figures exchange glances. One steps forward and says, 'You're not supposed to be awake. This complicates things.' Before you can respond, you feel a pinch as a needle enters your vein, and everything goes black.",
     options: [
       {
         text: 'Embrace the darkness',
