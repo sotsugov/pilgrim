@@ -14,6 +14,9 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Destinations } from '../api/destinations/getDestination';
 import { Destination } from '../api/destinations/destination';
+import { Separator } from '@/components/ui/separator';
+import { Clipboard, Check } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function GameScreen() {
   const {
@@ -31,7 +34,17 @@ export default function GameScreen() {
   } = useGameStore();
 
   const [saveId, setSaveId] = useState<string | null>(null);
-  const [lastSavedState, setLastSavedState] = useState<string>('');
+  const [, setLastSavedState] = useState<string>('');
+  const [isLoading, setIsLoading] = useState(true);
+  const [copied, setCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    if (saveId) {
+      await navigator.clipboard.writeText(saveId);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const currentDestination = Destinations.find((dest) => dest.id === board);
 
@@ -43,7 +56,44 @@ export default function GameScreen() {
     history,
   });
 
-  const hasStateChanged = currentStateString !== lastSavedState;
+  // Automatically save and generate code when component mounts or board changes
+  useEffect(() => {
+    const generateSaveCode = async () => {
+      setIsLoading(true);
+      const gameState = {
+        board,
+        effects,
+        boardHistory,
+        optionHistory,
+        history,
+      };
+
+      try {
+        const response = await fetch('/api/gamestate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ gameState }),
+        });
+
+        const { id } = await response.json();
+        setSaveId(id);
+        setLastSavedState(currentStateString);
+      } catch (error) {
+        console.error('Failed to generate save code:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    generateSaveCode();
+  }, [
+    board,
+    effects,
+    boardHistory,
+    optionHistory,
+    history,
+    currentStateString,
+  ]);
 
   // Wrap meetsRequirements in useCallback
   const meetsRequirements = useCallback(
@@ -61,7 +111,6 @@ export default function GameScreen() {
       addToBoardHistory(option.destination);
       addToOptionHistory(option.destination);
       option.effects.forEach((effect) => addEffect(effect));
-      setSaveId(null);
     },
     [setBoard, addToBoardHistory, addToOptionHistory, addEffect],
   );
@@ -93,30 +142,6 @@ export default function GameScreen() {
     };
   }, [currentDestination, meetsRequirements, handleOptionClick]);
 
-  const handleSaveGame = async () => {
-    const gameState = {
-      board,
-      effects,
-      boardHistory,
-      optionHistory,
-      history,
-    };
-
-    try {
-      const response = await fetch('/api/gamestate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ gameState }),
-      });
-
-      const { id } = await response.json();
-      setSaveId(id);
-      setLastSavedState(currentStateString);
-    } catch (error) {
-      console.error('Failed to save game:', error);
-    }
-  };
-
   if (!currentDestination) {
     return (
       <div className="container mx-auto p-4">
@@ -147,11 +172,11 @@ export default function GameScreen() {
   }
 
   return (
-    <div className="container mx-auto p-4">
-      <header className="mb-4 flex justify-between items-center">
-        <div className="flex gap-2">
+    <div className="w-full max-w-2xl mx-auto">
+      <header className="py-6 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center px-4">
+        <div className="flex flex-wrap gap-2">
           <Link href="/">
-            <Button variant="outline">Return to Main Page</Button>
+            <Button variant="outline">Return</Button>
           </Link>
           <Button
             variant="outline"
@@ -162,68 +187,86 @@ export default function GameScreen() {
               setLastSavedState('');
             }}
           >
-            Restart Game
-          </Button>
-        </div>
-        <div className="flex items-center gap-2">
-          {saveId && (
-            <div className="text-sm text-muted-foreground">
-              Save Code: <span className="font-mono">{saveId}</span>
-            </div>
-          )}
-          <Button
-            onClick={handleSaveGame}
-            disabled={!hasStateChanged}
-            title={
-              !hasStateChanged ? 'Game state saved' : 'Save current game state'
-            }
-          >
-            {!hasStateChanged ? 'Saved' : 'Save Game'}
+            Restart
           </Button>
         </div>
       </header>
-      <Card className="w-full max-w-2xl mx-auto">
-        <CardHeader>
-          <CardTitle>
-            {currentDestination.title || `Chapter ${board}`}
+
+      <Card className="mx-4">
+        <CardHeader className="space-y-4">
+          <CardTitle className="text-muted-foreground">
+            {currentDestination.title || `Fragment ${board}`}
           </CardTitle>
-          <CardDescription className="text-lg mb-4">
+          <CardDescription className="text-base text-foreground">
             {currentDestination.description}
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-2">
+
+        <Separator />
+
+        <CardContent className="w-full min-w-full">
+          <div className="pt-4 space-y-2">
             {currentDestination.options
               .filter((option) => meetsRequirements(option.requirements))
               .map((option, index) => (
                 <Link
                   key={index}
-                  href={`#`}
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     handleOptionClick(option);
                   }}
-                  className="block w-full p-3 rounded-md text-left text-base bg-gray-800/50 hover:bg-accent/80 hover:text-accent-foreground transition-colors duration-200 no-underline text-white/90 flex-col gap-1"
+                  className="block w-full p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/80 transition-colors duration-200 no-underline"
                   scroll={false}
                 >
-                  <div>
-                    <span className="font-bold mr-2 inline-flex items-center justify-center w-6 h-6 rounded-full bg-accent/20 text-sm">
+                  <div className="flex gap-2">
+                    <span className="font-semibold flex-shrink-0 inline-flex items-center justify-center size-6 rounded-full bg-secondary text-foreground">
                       {index + 1}
                     </span>
-                    {option.requirements.length > 0 && (
-                      <span className="text-sm text-emerald-400 mr-2">
-                        [{option.requirements.join(', ')}]
-                      </span>
-                    )}
-                    {option.text}
+                    <div>
+                      {option.requirements.length > 0 && (
+                        <span className="text-muted-foreground mr-1">
+                          [{option.requirements.join(', ')}]
+                        </span>
+                      )}
+                      {option.text}
+                    </div>
                   </div>
                 </Link>
               ))}
           </div>
         </CardContent>
-        <CardFooter className="flex flex-col items-start">
-          <div className="text-sm text-muted-foreground mb-2">
-            Current effects: {effects.join(', ')}
+
+        <Separator />
+
+        <CardFooter className="flex flex-col items-start py-4 text-sm">
+          <div className="text-muted-foreground">
+            <div className="break-words">Effects: {effects.length}</div>
+            <div>Steps: {history.length - 1}</div>
+          </div>
+          <div className="w-full flex items-center gap-x-1 py-2">
+            <span className="text-muted-foreground">Save Code:</span>
+            <div className="flex items-center gap-2">
+              {isLoading ? (
+                <Skeleton className="h-4 w-[64px]" />
+              ) : (
+                <span className="">{saveId}</span>
+              )}
+              <Button
+                size="icon"
+                variant="secondary"
+                className="h-6 w-6"
+                onClick={copyToClipboard}
+                disabled={isLoading || !saveId}
+              >
+                {copied ? (
+                  <Check className="size-4" />
+                ) : (
+                  <Clipboard className="size-4" />
+                )}
+                <span className="sr-only">Copy save code</span>
+              </Button>
+            </div>
           </div>
         </CardFooter>
       </Card>

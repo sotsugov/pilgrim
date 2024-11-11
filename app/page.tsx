@@ -54,11 +54,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-6 row-start-2 items-center text-center">
-      <div className="font-logo text-[6rem] -tracking-[0.5rem] [text-shadow:_0_0_2px_#ffffff,_0_0_5px_#6366f1]">
-        PILGRIM
-      </div>
-      <div className="text-lg">
-        Delve Deep. Decipher the Unknown. Determine Your Fate.
+      <div>
+        <div className="font-logo text-[6rem] -tracking-[0.5rem] [text-shadow:_0_0_2px_#ffffff,_0_0_5px_#6366f1]">
+          PILGRIM
+        </div>
+        <div className="text-xl">
+          Delve Deep. Decipher the Unknown. Determine Your Fate.
+        </div>
       </div>
       <div className="mx-auto max-w-2xl tracking-wide text-muted-foreground">
         In a world where the boundaries of reality are fragile, a series of
@@ -66,28 +68,34 @@ export default function Home() {
         a journey where every thread pulled can unravel a tapestry of truths or
         weave a web of deceit.
       </div>
-      <div className="space-y-4">
+      <div className="flex items-center">
         <Button size="lg" onClick={handleNewGame}>
           Begin New Game
         </Button>
+      </div>
+
+      <div className="flex flex-col items-center gap-3 pt-12">
+        <span className="text-muted-foreground/50">
+          If you already have a save code, you can continue from the save point
+        </span>
         <form
           onSubmit={handleRestoreGame}
-          className="flex flex-col items-center space-y-2"
+          className="flex flex-row items-center space-x-2"
         >
           <Input
             type="text"
             name="state"
-            placeholder="Enter saved game code"
-            className="w-64"
+            placeholder="Enter game code"
+            className="w-40"
           />
           <Button type="submit" variant="outline">
-            Restore Saved Game
+            Resume Game
           </Button>
         </form>
-        {restoreError && (
-          <div className="text-red-500 text-sm">{restoreError}</div>
-        )}
       </div>
+      {restoreError && (
+        <div className="text-destructive text-sm">{restoreError}</div>
+      )}
     </div>
   );
 }

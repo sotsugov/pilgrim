@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 
 const sans = localFont({
-  src: './fonts/HostGrotesk-VariableFont_wght.ttf',
+  src: './fonts/RethinkSans-VariableFont_wght.ttf',
   variable: '--font-sans',
   weight: '100 900',
 });
@@ -55,7 +55,7 @@ function Footer() {
   return (
     <footer className="row-start-3 flex gap-6 flex-wrap items-center text-center">
       <a
-        className="uppercase font-semibold tracking-tight no-underline text-xs text-muted hover:text-muted-foreground transition-colors"
+        className="uppercase font-semibold tracking-tight no-underline text-xs text-muted-foreground/60 hover:text-foreground transition-colors"
         href="https://isv.ee"
         target="_blank"
         rel="noopener noreferrer"
