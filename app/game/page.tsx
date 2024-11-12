@@ -1,22 +1,23 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Destinations } from '../api/destinations/getDestination';
 import { Destination } from '../api/destinations/destination';
+import { getDestination } from '../api/destinations/getDestination';
 import { Separator } from '@/components/ui/separator';
 import { Clipboard, Check } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useRouter } from 'next/navigation';
 
 export default function GameScreen() {
   const {
@@ -33,33 +34,59 @@ export default function GameScreen() {
     resetGame,
   } = useGameStore();
 
+  const router = useRouter();
+  const [currentDestination, setCurrentDestination] =
+    useState<Destination | null>(null);
   const [saveId, setSaveId] = useState<string | null>(null);
-  const [, setLastSavedState] = useState<string>('');
   const [isLoading, setIsLoading] = useState(true);
+  const [isSaving, setIsSaving] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const copyToClipboard = async () => {
+  // Use ref to track if we should save
+  const shouldSave = useRef(true);
+
+  const copyToClipboard = useCallback(async () => {
     if (saveId) {
       await navigator.clipboard.writeText(saveId);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
-  };
+  }, [saveId]);
 
-  const currentDestination = Destinations.find((dest) => dest.id === board);
-
-  const currentStateString = JSON.stringify({
-    board,
-    effects,
-    boardHistory,
-    optionHistory,
-    history,
-  });
-
-  // Automatically save and generate code when component mounts or board changes
+  // Fetch destination when board changes
   useEffect(() => {
-    const generateSaveCode = async () => {
+    let isMounted = true;
+    const fetchDestination = async () => {
       setIsLoading(true);
+      try {
+        const destination = await getDestination(board);
+        if (isMounted) {
+          setCurrentDestination(destination);
+          addToHistory(destination);
+        }
+      } catch (error) {
+        console.error('Failed to fetch destination:', error);
+        if (isMounted) setCurrentDestination(null);
+      } finally {
+        if (isMounted) setIsLoading(false);
+      }
+    };
+
+    fetchDestination();
+    return () => {
+      isMounted = false;
+    };
+  }, [board, addToHistory]);
+
+  // Save game state
+  useEffect(() => {
+    if (!shouldSave.current) {
+      shouldSave.current = true;
+      return;
+    }
+
+    const saveGameState = async () => {
+      setIsSaving(true);
       const gameState = {
         board,
         effects,
@@ -77,25 +104,16 @@ export default function GameScreen() {
 
         const { id } = await response.json();
         setSaveId(id);
-        setLastSavedState(currentStateString);
       } catch (error) {
         console.error('Failed to generate save code:', error);
       } finally {
-        setIsLoading(false);
+        setIsSaving(false);
       }
     };
 
-    generateSaveCode();
-  }, [
-    board,
-    effects,
-    boardHistory,
-    optionHistory,
-    history,
-    currentStateString,
-  ]);
+    saveGameState();
+  }, [board, effects, boardHistory, optionHistory, history]);
 
-  // Wrap meetsRequirements in useCallback
   const meetsRequirements = useCallback(
     (requirements: string[]) => {
       if (!requirements.length) return true;
@@ -104,7 +122,6 @@ export default function GameScreen() {
     [effects],
   );
 
-  // Wrap handleOptionClick in useCallback
   const handleOptionClick = useCallback(
     (option: Destination['options'][0]) => {
       setBoard(option.destination);
@@ -116,20 +133,13 @@ export default function GameScreen() {
   );
 
   useEffect(() => {
-    if (currentDestination) {
-      addToHistory(currentDestination);
-    }
-  }, [board, addToHistory, currentDestination]);
-
-  // Keyboard handler effect
-  useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const keyNumber = parseInt(event.key);
-      if (!isNaN(keyNumber)) {
-        const filteredOptions = currentDestination?.options.filter((option) =>
+      if (!isNaN(keyNumber) && currentDestination) {
+        const filteredOptions = currentDestination.options.filter((option) =>
           meetsRequirements(option.requirements),
         );
-        const selectedOption = filteredOptions?.[keyNumber - 1];
+        const selectedOption = filteredOptions[keyNumber - 1];
         if (selectedOption) {
           handleOptionClick(selectedOption);
         }
@@ -141,6 +151,34 @@ export default function GameScreen() {
       window.removeEventListener('keydown', handleKeyPress);
     };
   }, [currentDestination, meetsRequirements, handleOptionClick]);
+
+  const handleRestart = useCallback(() => {
+    shouldSave.current = false; // Prevent save on reset
+    resetGame();
+    setBoard(0);
+    setSaveId(null);
+    router.push('/');
+  }, [resetGame, setBoard, router]);
+
+  if (isLoading) {
+    return (
+      <div className="container mx-auto py-8">
+        <Card className="w-full max-w-2xl mx-auto">
+          <CardHeader>
+            <Skeleton className="h-8 w-3/4 mb-2" />
+          </CardHeader>
+          <CardContent>
+            <Skeleton className="h-4 w-full mb-2" />
+            <Skeleton className="h-4 w-5/6 mb-2" />
+            <Skeleton className="h-4 w-4/5" />
+          </CardContent>
+          <CardFooter>
+            <Skeleton className="h-10 w-24" />
+          </CardFooter>
+        </Card>
+      </div>
+    );
+  }
 
   if (!currentDestination) {
     return (
@@ -155,16 +193,7 @@ export default function GameScreen() {
             </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button
-              onClick={() => {
-                resetGame();
-                setBoard(0);
-                setSaveId(null);
-                setLastSavedState('');
-              }}
-            >
-              Restart Game
-            </Button>
+            <Button onClick={handleRestart}>Restart Game</Button>
           </CardFooter>
         </Card>
       </div>
@@ -178,15 +207,7 @@ export default function GameScreen() {
           <Link href="/">
             <Button variant="outline">Return</Button>
           </Link>
-          <Button
-            variant="outline"
-            onClick={() => {
-              resetGame();
-              setBoard(0);
-              setSaveId(null);
-              setLastSavedState('');
-            }}
-          >
+          <Button variant="outline" onClick={handleRestart}>
             Restart
           </Button>
         </div>
@@ -195,7 +216,7 @@ export default function GameScreen() {
       <Card className="mx-4">
         <CardHeader className="space-y-4">
           <CardTitle className="text-muted-foreground tracking-normal">
-            {currentDestination.title || `Fragment ${board}`}
+            {currentDestination.title || ''}
           </CardTitle>
           <CardDescription className="text-base text-foreground">
             {currentDestination.description}
@@ -223,13 +244,13 @@ export default function GameScreen() {
                     <span className="font-semibold flex-shrink-0 inline-flex items-center justify-center size-6 rounded-full bg-secondary text-foreground">
                       {index + 1}
                     </span>
-                    <div>
+                    <div className="flex-grow overflow-hidden">
                       {option.requirements.length > 0 && (
                         <span className="text-muted-foreground mr-1">
                           [{option.requirements.join(', ')}]
                         </span>
                       )}
-                      {option.text}
+                      <span className="break-words">{option.text}</span>
                     </div>
                   </div>
                 </Link>
@@ -245,10 +266,10 @@ export default function GameScreen() {
             <span className="text-border">•</span>
             <div className="break-words">Effects: {effects.length}</div>
           </div>
-          <div className="w-full flex items-center gap-x-2">
+          <div className="w-full flex items-center gap-x-2 mt-2">
             <span className="text-muted-foreground">Save Code:</span>
             <div className="flex items-center gap-2">
-              {isLoading ? (
+              {isSaving ? (
                 <Skeleton className="h-4 w-[64px]" />
               ) : (
                 <span className="tracking-wide">{saveId}</span>
@@ -258,9 +279,13 @@ export default function GameScreen() {
                 variant="secondary"
                 className="h-6 w-6"
                 onClick={copyToClipboard}
-                disabled={isLoading || !saveId}
+                disabled={isSaving || !saveId}
               >
-                {copied ? <Check /> : <Clipboard />}
+                {copied ? (
+                  <Check className="h-4 w-4" />
+                ) : (
+                  <Clipboard className="h-4 w-4" />
+                )}
                 <span className="sr-only">Copy save code</span>
               </Button>
             </div>
