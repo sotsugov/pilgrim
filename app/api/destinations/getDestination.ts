@@ -1,7 +1,12 @@
 'use server';
+
 import { Destination } from './destination';
 
 export async function getDestination(id: number): Promise<Destination> {
+  if (!process.env.API_URL) {
+    throw new Error('API_URL is not configured');
+  }
+
   try {
     const response = await fetch(`${process.env.API_URL}/destinations/${id}`, {
       method: 'GET',
@@ -11,6 +16,9 @@ export async function getDestination(id: number): Promise<Destination> {
     });
 
     if (!response.ok) {
+      if (response.status === 404) {
+        throw new Error(`Destination ${id} not found`);
+      }
       throw new Error(`HTTP error! status: ${response.status}`);
     }
 

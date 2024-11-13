@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState, useRef } from 'react';
-import { useGameStore } from '@/store/gameStore';
+import { useGameStore } from '@/store/game-store';
 import {
   Card,
   CardContent,
@@ -12,14 +12,22 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { Destination } from '../api/destinations/destination';
-import { getDestination } from '../api/destinations/getDestination';
+import { useRouter, useParams } from 'next/navigation';
 import { Separator } from '@/components/ui/separator';
-import { Clipboard, Check } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useRouter } from 'next/navigation';
+import debounce from 'lodash.debounce';
+import isEqual from 'lodash.isequal';
+import { Destination } from '@/app/api/destinations/destination';
+import { getDestination } from '@/app/api/destinations/getDestination';
 
 export default function GameScreen() {
+  const router = useRouter();
+  const params = useParams();
+  let id = params.id;
+
+  const [saveId, setSaveId] = useState<string | string[] | undefined>(id);
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
+
   const {
     board,
     effects,
@@ -32,28 +40,125 @@ export default function GameScreen() {
     optionHistory,
     history,
     resetGame,
+    isInitialState,
+    setGameState,
   } = useGameStore();
 
-  const router = useRouter();
   const [currentDestination, setCurrentDestination] =
     useState<Destination | null>(null);
-  const [saveId, setSaveId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
-  const [copied, setCopied] = useState(false);
 
-  // Use ref to track if we should save
-  const shouldSave = useRef(true);
-
-  const copyToClipboard = useCallback(async () => {
-    if (saveId) {
-      await navigator.clipboard.writeText(saveId);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+  // Load game state from 'id' in the URL
+  useEffect(() => {
+    if (!saveId) {
+      // If no 'id' is present, start a new game
+      setIsLoading(false);
+      setIsInitialLoad(false); // Initial load is complete
+      return;
     }
-  }, [saveId]);
 
-  // Fetch destination when board changes
+    const fetchGameState = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch(`/api/gamestate?id=${saveId}`);
+        if (!response.ok) {
+          throw new Error('Failed to load game state');
+        }
+        const { gameState } = await response.json();
+        // Set the game state in the store
+        setGameState(gameState);
+      } catch (error) {
+        console.error('Failed to load game state:', error);
+        router.replace('/game'); // Redirect to new game
+      } finally {
+        setIsLoading(false);
+        setIsInitialLoad(false); // Initial load is complete
+      }
+    };
+
+    fetchGameState();
+  }, [saveId, setGameState, router]);
+
+  // Function to save game state and update URL
+  const saveGameState = useCallback(
+    async (gameState: any) => {
+      setIsSaving(true);
+      try {
+        let response;
+        if (saveId) {
+          // Update existing game state
+          response = await fetch(`/api/gamestate?id=${saveId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ gameState }),
+          });
+          if (!response.ok) {
+            throw new Error('Failed to update game state');
+          }
+        } else {
+          // Create new game state
+          response = await fetch('/api/gamestate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ gameState }),
+          });
+          const { id: newId } = await response.json();
+          setSaveId(newId);
+          router.replace(`/game/${newId}`); // Update the URL with new id
+        }
+      } catch (error) {
+        console.error('Failed to save game state:', error);
+      } finally {
+        setIsSaving(false);
+      }
+    },
+    [router, saveId],
+  );
+
+  // Debounced version to prevent excessive saves
+  const debouncedSaveGameState = useCallback(debounce(saveGameState, 500), [
+    saveGameState,
+  ]);
+
+  const prevGameStateRef = useRef({
+    board,
+    effects,
+    boardHistory,
+    optionHistory,
+    history,
+  });
+
+  // Save game state when it changes
+  useEffect(() => {
+    if (isInitialLoad || isInitialState) return; // Don't save during initial load or if in initial state
+
+    const currentGameState = {
+      board,
+      effects,
+      boardHistory,
+      optionHistory,
+      history,
+    };
+
+    if (isEqual(prevGameStateRef.current, currentGameState)) {
+      return; // Game state hasn't changed, don't save
+    }
+
+    prevGameStateRef.current = currentGameState;
+    debouncedSaveGameState(currentGameState);
+  }, [
+    board,
+    effects,
+    boardHistory,
+    optionHistory,
+    history,
+    isInitialState,
+    isInitialLoad,
+    debouncedSaveGameState,
+  ]);
+
+  // Fetch the current destination when the board changes
   useEffect(() => {
     let isMounted = true;
     const fetchDestination = async () => {
@@ -66,9 +171,13 @@ export default function GameScreen() {
         }
       } catch (error) {
         console.error('Failed to fetch destination:', error);
-        if (isMounted) setCurrentDestination(null);
+        if (isMounted) {
+          setCurrentDestination(null);
+        }
       } finally {
-        if (isMounted) setIsLoading(false);
+        if (isMounted) {
+          setIsLoading(false);
+        }
       }
     };
 
@@ -77,42 +186,6 @@ export default function GameScreen() {
       isMounted = false;
     };
   }, [board, addToHistory]);
-
-  // Save game state
-  useEffect(() => {
-    if (!shouldSave.current) {
-      shouldSave.current = true;
-      return;
-    }
-
-    const saveGameState = async () => {
-      setIsSaving(true);
-      const gameState = {
-        board,
-        effects,
-        boardHistory,
-        optionHistory,
-        history,
-      };
-
-      try {
-        const response = await fetch('/api/gamestate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ gameState }),
-        });
-
-        const { id } = await response.json();
-        setSaveId(id);
-      } catch (error) {
-        console.error('Failed to generate save code:', error);
-      } finally {
-        setIsSaving(false);
-      }
-    };
-
-    saveGameState();
-  }, [board, effects, boardHistory, optionHistory, history]);
 
   const meetsRequirements = useCallback(
     (requirements: string[]) => {
@@ -128,10 +201,18 @@ export default function GameScreen() {
       addToBoardHistory(option.destination);
       addToOptionHistory(option.destination);
       option.effects.forEach((effect) => addEffect(effect));
+      useGameStore.setState({ isInitialState: false });
     },
     [setBoard, addToBoardHistory, addToOptionHistory, addEffect],
   );
 
+  const handleRestart = useCallback(() => {
+    resetGame();
+    setSaveId(undefined);
+    router.replace('/game'); // Remove any 'id' from the URL
+  }, [resetGame, router]);
+
+  // Handle keyboard input to select options
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const keyNumber = parseInt(event.key);
@@ -152,34 +233,20 @@ export default function GameScreen() {
     };
   }, [currentDestination, meetsRequirements, handleOptionClick]);
 
-  const handleRestart = useCallback(() => {
-    shouldSave.current = false; // Prevent save on reset
-    resetGame();
-    setBoard(0);
-    setSaveId(null);
-    router.push('/');
-  }, [resetGame, setBoard, router]);
-
+  // Render loading state if necessary
   if (isLoading) {
     return (
-      <div className="container mx-auto py-8">
-        <Card className="w-full max-w-2xl mx-auto">
-          <CardHeader>
-            <Skeleton className="h-8 w-3/4 mb-2" />
-          </CardHeader>
-          <CardContent>
-            <Skeleton className="h-4 w-full mb-2" />
-            <Skeleton className="h-4 w-5/6 mb-2" />
-            <Skeleton className="h-4 w-4/5" />
-          </CardContent>
-          <CardFooter>
-            <Skeleton className="h-10 w-24" />
-          </CardFooter>
-        </Card>
+      <div className="w-full max-w-2xl mx-auto py-8">
+        {/* You can customize the loading skeleton here */}
+        <Skeleton className="h-20 w-full mb-2" />
+        <Skeleton className="h-6 w-full" />
+        <Skeleton className="h-6 w-4/5" />
+        <Skeleton className="h-6 w-5/6" />
       </div>
     );
   }
 
+  // Render error state if currentDestination is null
   if (!currentDestination) {
     return (
       <div className="container mx-auto py-8">
@@ -200,19 +267,24 @@ export default function GameScreen() {
     );
   }
 
+  // Render the main game screen
   return (
     <div className="w-full max-w-2xl mx-auto py-8">
+      {/* Header */}
       <header className="py-6 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center px-4">
         <div className="flex flex-wrap gap-2">
           <Link href="/">
             <Button variant="outline">Return</Button>
           </Link>
-          <Button variant="outline" onClick={handleRestart}>
-            Restart
-          </Button>
+          {!isInitialState && (
+            <Button variant="outline" onClick={handleRestart}>
+              Restart
+            </Button>
+          )}
         </div>
       </header>
 
+      {/* Main Content */}
       <Card className="mx-4">
         <CardHeader className="space-y-4">
           <CardTitle className="text-muted-foreground tracking-normal">
@@ -260,35 +332,12 @@ export default function GameScreen() {
 
         <Separator />
 
+        {/* Footer */}
         <CardFooter className="flex flex-col items-start py-4">
           <div className="text-muted flex flex-row items-center justify-between gap-x-2">
-            <div>Steps: {history.length - 1}</div>
+            <div>Steps: {Math.max(0, history.length - 1)}</div>
             <span className="text-border">•</span>
             <div className="break-words">Effects: {effects.length}</div>
-          </div>
-          <div className="w-full flex items-center gap-x-2 mt-2">
-            <span className="text-muted-foreground">Save Code:</span>
-            <div className="flex items-center gap-2">
-              {isSaving ? (
-                <Skeleton className="h-4 w-[64px]" />
-              ) : (
-                <span className="tracking-wide">{saveId}</span>
-              )}
-              <Button
-                size="sm"
-                variant="secondary"
-                className="h-6 w-6"
-                onClick={copyToClipboard}
-                disabled={isSaving || !saveId}
-              >
-                {copied ? (
-                  <Check className="h-4 w-4" />
-                ) : (
-                  <Clipboard className="h-4 w-4" />
-                )}
-                <span className="sr-only">Copy save code</span>
-              </Button>
-            </div>
           </div>
         </CardFooter>
       </Card>

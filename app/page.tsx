@@ -3,53 +3,38 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { useGameStore } from '@/store/gameStore';
+import { useGameStore } from '@/store/game-store';
 
 export default function Home() {
   const router = useRouter();
-  const {
-    setBoard,
-    setEffects,
-    setBoardHistory,
-    setOptionHistory,
-    setHistory,
-    resetGame,
-  } = useGameStore();
-  const [restoreError, setRestoreError] = useState<string | null>(null);
+  const { resetGame, getInitialState } = useGameStore();
+  const [isStarting, setIsStarting] = useState(false);
 
-  const handleRestoreGame = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setRestoreError(null);
-    const formData = new FormData(event.currentTarget);
-    const id = formData.get('state') as string;
-    if (id) {
-      try {
-        const response = await fetch(`/api/gamestate?id=${id}`);
-        if (!response.ok) {
-          throw new Error('Failed to restore game state');
-        }
-        const { gameState } = await response.json();
-        setBoard(gameState.board);
-        setEffects(gameState.effects);
-        setBoardHistory(gameState.boardHistory);
-        setOptionHistory(gameState.optionHistory);
-        setHistory(gameState.history);
-        router.push('/game');
-      } catch (error) {
-        console.error('Failed to restore game state:', error);
-        setRestoreError(
-          'Failed to restore game state. Please check your save code.',
-        );
+  const handleNewGame = async () => {
+    setIsStarting(true);
+    try {
+      resetGame();
+      const initialGameState = getInitialState();
+
+      const response = await fetch('/api/gamestate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ gameState: initialGameState }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to start a new game.');
       }
-    } else {
-      setRestoreError('Please enter a save code.');
-    }
-  };
 
-  const handleNewGame = () => {
-    resetGame();
-    router.push('/game');
+      const { id: newId } = await response.json();
+
+      router.push(`/game/${newId}`);
+    } catch (error) {
+      console.error('Failed to start a new game:', error);
+      // Optionally, handle the error (e.g., show an error message)
+    } finally {
+      setIsStarting(false);
+    }
   };
 
   return (
@@ -70,34 +55,15 @@ export default function Home() {
           truths or weave a web of deceit.
         </div>
         <div className="flex items-center">
-          <Button size="lg" onClick={handleNewGame}>
-            Begin New Game
+          <Button
+            size="lg"
+            onClick={handleNewGame}
+            disabled={isStarting}
+            className="transition-all"
+          >
+            {isStarting ? 'Starting...' : 'Begin New Game'}
           </Button>
         </div>
-
-        <div className="flex flex-col items-center gap-3 pt-6">
-          <span className="text-muted">
-            If you already have a save code, you can continue from the save
-            point
-          </span>
-          <form
-            onSubmit={handleRestoreGame}
-            className="flex flex-row items-center space-x-2"
-          >
-            <Input
-              type="text"
-              name="state"
-              placeholder="Enter game code"
-              className="w-40"
-            />
-            <Button type="submit" variant="outline">
-              Resume Game
-            </Button>
-          </form>
-        </div>
-        {restoreError && (
-          <div className="text-destructive text-sm">{restoreError}</div>
-        )}
       </div>
     </div>
   );
