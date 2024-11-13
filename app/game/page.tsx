@@ -71,51 +71,55 @@ export default function GamePage() {
   }
 
   return (
-    <Card className="w-full mx-auto">
-      <CardHeader>
-        {currentDestination.title && (
-          <CardTitle className="text-xl">{currentDestination.title}</CardTitle>
-        )}
-        <div>{currentDestination.description}</div>
-      </CardHeader>
-      <Separator />
-      <CardContent className="space-y-4 mt-6">
-        <div className="space-y-2">
-          {availableOptions.map((option, index) => (
-            <Link
-              key={index}
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                handleOptionClick(option);
-              }}
-              className="block w-full p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/80 transition-colors duration-200 no-underline"
-              scroll={false}
-            >
-              <div className="flex gap-2">
-                <span className="font-semibold flex-shrink-0 inline-flex items-center justify-center size-6 rounded-full bg-secondary text-foreground">
-                  {index + 1}
-                </span>
-                <div className="flex-grow overflow-hidden">
-                  {option.requirements.length > 0 && (
-                    <span className="text-muted-foreground mr-1">
-                      [{option.requirements.join(', ')}]
-                    </span>
-                  )}
-                  <span className="break-words">{option.text}</span>
+    <div className="w-full mx-auto px-4">
+      <Card className="w-full">
+        <CardHeader>
+          {currentDestination.title && (
+            <CardTitle className="text-xl mb-4">
+              {currentDestination.title}
+            </CardTitle>
+          )}
+          <div>{currentDestination.description}</div>
+        </CardHeader>
+        <Separator />
+        <CardContent className="space-y-4 mt-6">
+          <div className="space-y-2">
+            {availableOptions.map((option, index) => (
+              <Link
+                key={index}
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleOptionClick(option);
+                }}
+                className="block w-full p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/80 transition-colors duration-200 no-underline"
+                scroll={false}
+              >
+                <div className="flex gap-2">
+                  <span className="font-semibold flex-shrink-0 inline-flex items-center justify-center size-6 rounded-full bg-secondary text-foreground">
+                    {index + 1}
+                  </span>
+                  <div className="flex-grow overflow-hidden">
+                    {option.requirements.length > 0 && (
+                      <span className="text-muted-foreground mr-1">
+                        [{option.requirements.join(', ')}]
+                      </span>
+                    )}
+                    <span className="break-words">{option.text}</span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </CardContent>
-      <Separator />
-      <CardFooter className="flex py-4">
-        <div className="text-muted items-start">
-          <div>Steps: {steps}</div>
-          <div>Effects: {effects.length}</div>
-        </div>
-      </CardFooter>
-    </Card>
+              </Link>
+            ))}
+          </div>
+        </CardContent>
+        <Separator />
+        <CardFooter className="flex py-4">
+          <div className="text-muted items-start">
+            <div>Steps: {steps}</div>
+            <div>Effects: {effects.length}</div>
+          </div>
+        </CardFooter>
+      </Card>
+    </div>
   );
 }

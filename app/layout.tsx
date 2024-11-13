@@ -39,8 +39,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8">
-            <main className="max-w-[80ch] mx-auto w-full flex-1 flex">
+          <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-4">
+            <main className="max-w-[80ch] mx-auto flex-grow flex">
               {children}
             </main>
             <Footer />
@@ -53,7 +53,7 @@ export default function RootLayout({
 
 function Footer() {
   return (
-    <footer className="mt-12 text-center">
+    <footer className="mt-12 text-center p-6">
       <div className="flex justify-center space-x-4 tracking-tight">
         <a
           className="uppercase font-semibold no-underline text-muted-foreground text-xs hover:text-foreground transition-colors"

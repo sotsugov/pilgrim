@@ -21,12 +21,12 @@ export default function GameLayout({
 
   return (
     <div className="flex flex-col">
-      <header className="">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <header className="w-full">
+        <div className="container mx-auto p-6 flex justify-between items-center">
           <Link href="/" className="flex items-center">
             <PilgrimIcon className="h-12 w-12 text-muted" />
           </Link>
-          <Button variant={'outline'} onClick={handleReset}>
+          <Button variant={'outline'} onClick={handleReset} className="mr-2">
             Reset
           </Button>
         </div>

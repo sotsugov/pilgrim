@@ -53,7 +53,7 @@ const gameOverDestination: Destination = {
   id: -2,
   title: 'The Void',
   description:
-    'Where there is a beginning, there is an end. This is no exception...',
+    'Our inevitable end is not tragic; it is the merciful curtain fall on a grotesque performance none of us volunteered to give. This is no exception...',
   options: [
     {
       text: 'Begin anew',
