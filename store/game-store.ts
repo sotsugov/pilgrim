@@ -2,7 +2,7 @@ import { create } from 'zustand';
 import { Destination } from '../app/api/destinations/destination';
 
 // Define a type for the state properties only
-type GameStateData = {
+export type GameStateData = {
   board: number;
   effects: string[];
   boardHistory: number[];

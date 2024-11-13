@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useState, useRef } from 'react';
-import { useGameStore } from '@/store/game-store';
+import { GameStateData, useGameStore } from '@/store/game-store';
 import {
   Card,
   CardContent,
@@ -23,7 +23,7 @@ import { getDestination } from '@/app/api/destinations/getDestination';
 export default function GameScreen() {
   const router = useRouter();
   const params = useParams();
-  let id = params.id;
+  const id = params.id;
 
   const [saveId, setSaveId] = useState<string | string[] | undefined>(id);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
@@ -47,7 +47,7 @@ export default function GameScreen() {
   const [currentDestination, setCurrentDestination] =
     useState<Destination | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isSaving, setIsSaving] = useState(false);
+  const [, setIsSaving] = useState(false);
 
   // Load game state from 'id' in the URL
   useEffect(() => {
@@ -82,7 +82,7 @@ export default function GameScreen() {
 
   // Function to save game state and update URL
   const saveGameState = useCallback(
-    async (gameState: any) => {
+    async (gameState: GameStateData) => {
       setIsSaving(true);
       try {
         let response;
@@ -117,9 +117,15 @@ export default function GameScreen() {
   );
 
   // Debounced version to prevent excessive saves
-  const debouncedSaveGameState = useCallback(debounce(saveGameState, 500), [
-    saveGameState,
-  ]);
+  const debouncedSaveGameState = useCallback(
+    (gameState: GameStateData) => {
+      const debouncedSave = debounce(saveGameState, 500);
+      debouncedSave(gameState);
+      // Cleanup the debounced function
+      return () => debouncedSave.cancel();
+    },
+    [saveGameState],
+  );
 
   const prevGameStateRef = useRef({
     board,
@@ -139,6 +145,7 @@ export default function GameScreen() {
       boardHistory,
       optionHistory,
       history,
+      isInitialState,
     };
 
     if (isEqual(prevGameStateRef.current, currentGameState)) {
