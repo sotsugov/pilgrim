@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="w-full flex items-center justify-center">
-      <div className="flex flex-col gap-6 items-center text-center p-6">
+      <div className="flex flex-col gap-6 items-center text-center">
         <div>
           <div className="font-logo text-[6rem] -tracking-[0.5rem] [text-shadow:_0_0_2px_#ffffff,_0_0_5px_#6366f1]">
             PILGRIM
@@ -24,7 +24,7 @@ export default function Home() {
             Delve Deep. Decipher the Unknown. Determine Your Fate.
           </div>
         </div>
-        <div className="mx-auto max-w-[80ch] tracking-wide text-muted">
+        <div className="tracking-wide text-muted break-words">
           In a world where the boundaries of reality are fragile, a series of
           unexplained disappearances beckons the brave to seek answers. Embark
           on a journey where every thread pulled can unravel a tapestry of
