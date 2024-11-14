@@ -24,7 +24,8 @@ export default function GamePage() {
 
   const meetsRequirements = useCallback(
     (requirements: string[]) => {
-      return requirements.every((req) => effects.includes(req));
+      if (requirements.length === 0) return true;
+      return requirements.some((req) => effects.includes(req));
     },
     [effects],
   );
@@ -102,7 +103,11 @@ export default function GamePage() {
                   <div className="flex-grow overflow-hidden">
                     {option.requirements.length > 0 && (
                       <span className="text-muted-foreground mr-1">
-                        [{option.requirements.join(', ')}]
+                        [
+                        {option.requirements
+                          .filter((req) => effects.includes(req))
+                          .join(', ')}
+                        ]
                       </span>
                     )}
                     <span className="break-words">{option.text}</span>

@@ -22,7 +22,7 @@ export default function GameLayout({
   return (
     <div className="flex flex-col">
       <header className="w-full">
-        <div className="container mx-auto p-6 flex justify-between items-center">
+        <div className="container mx-auto p-6 flex justify-between items-center animate-fade-down">
           <Link href="/" className="flex items-center">
             <PilgrimIcon className="h-12 w-12 text-muted" />
           </Link>
@@ -32,7 +32,9 @@ export default function GameLayout({
         </div>
       </header>
 
-      <main className="flex-grow container mx-auto px-4 py-8">{children}</main>
+      <main className="flex-grow container mx-auto px-4 py-8 animate-fade-up">
+        {children}
+      </main>
     </div>
   );
 }

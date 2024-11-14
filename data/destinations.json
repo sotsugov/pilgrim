@@ -5,7 +5,7 @@
     "description": "Confucius and you are both dreams, and I who say you are dreams am a dream myself. This is a paradox. Tomorrow a wise man may explain it; that tomorrow will not be for ten thousand generations.—CHUANG TSE: II",
     "options": [
       {
-        "text": "Dream on",
+        "text": "Descend into the labyrinth of consciousness",
         "destination": 1,
         "requirements": [],
         "effects": []
@@ -16,10 +16,10 @@
   },
   {
     "id": 1,
-    "description": "Your eyes are closed. There are visions piercing your mind. Unshaped and fragmented, individually they don't seem to make sense when your mind is chasing them, but when you focus, they become a clearer picture. You piece them together into a coherent pattern.",
+    "description": "Your eyes are closed, yet visions penetrate the thin membrane of consciousness like needles through silk. They dance at the edges of comprehension—fragments of a life that may or may not be yours, memories that could be implanted by the vast conspiracy of existence itself. As you attempt to piece together these shards of identity, they form patterns that mock the very notion of selfhood.",
     "options": [
       {
-        "text": "You are in the middle of a city square, surrounded by piles of dead bodies. Flames everywhere. Kneeling before you is a scared woman. Your gun is pressed to a tear that was running from her cheek. You have no choice but to pull the trigger.",
+        "text": "A city square unfolds like a malevolent flower. The bodies are arranged in patterns that suggest meaning while denying it. The person kneeling before you is both stranger and someone familiar, their tears marking the coordinates of your shared delusion. The gun is merely a prop in this theatre of cruelty.",
         "destination": 4,
         "requirements": [],
         "effects": [
@@ -27,7 +27,7 @@
         ]
       },
       {
-        "text": "You are enveloped by the warmth of your bed and the sounds of the birds outside. You hear a familiar melody of the voice that calls you by your name. If you want the memory to last, how long can you hold on to it?",
+        "text": "Warmth envelops you like a womb of false comfort. The birds sing their meaningless songs, their voices carrying the weight of all nature's indifference. A familiar voice speaks your name—but what is familiarity except another fold in the fabric of deception?",
         "destination": 3,
         "requirements": [],
         "effects": [
@@ -35,7 +35,7 @@
         ]
       },
       {
-        "text": "There is a lab filled with the research notes, equipment and screens with numbers. You let the silence ease the wildness of your thoughts for a moment, but lack the focus to piece the puzzle together. What is missing?",
+        "text": "The laboratory stretches before you, its surfaces reflecting the futile pursuit of knowledge. Numbers scroll endlessly on screens, each digit a reminder of the universe's cold arithmetic. In the silence, you hear the whisper of ultimate truth—that all understanding is but an illusion.",
         "destination": 3,
         "requirements": [],
         "effects": [
@@ -43,55 +43,47 @@
         ]
       },
       {
-        "text": "The abstraction is meaningless, its only purpose is to drag you deeper into questioning reality. You begin to question whether it is your own memories you are seeing. The difference is undecidable. You chose not to focus.",
+        "text": "The meaninglessness reveals itself like a lover's cruel joke. These may be your memories, or perhaps you are merely a memory yourself—a thought dreamed by something vast and indifferent. The distinction matters as little as any other truth in this mirror of non-existence.",
         "destination": 3,
         "requirements": [],
         "effects": [
           "NIHILIST"
         ]
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 3,
-    "description": "The fragments of your dream begin to coalesce, forming a clearer picture of who you might be. The echoes of your chosen path reverberate through your consciousness, but there's something else—a deeper understanding of your own nature that begins to crystallise.",
+    "description": "As the dreamscape settles like sediment in a murky pool, patterns emerge from the chaos of your consciousness. Each fragment reflects a different facet of potential selfhood, while somewhere beneath these shifting mirrors lies what might be called truth—or at least, the closest approximation your mind will allow.",
     "options": [
       {
-        "text": "Hold yourself together. Your iron will has always been your greatest asset. The world may crumble, but your resolve shall not.",
+        "text": "Embrace the steel core of your being. In this parade of uncertainty, your will remains the only constant—an anchor in the storm of existence. Let determination be your north star.",
         "destination": 4,
         "requirements": [],
         "effects": [
-          "VOLITION",
-          "STEADFAST"
+          "VOLITION"
         ]
       },
       {
-        "text": "Wield raw intellectual power. The world is a puzzle awaiting your analysis, each piece a clue to understanding the greater whole.",
+        "text": "Reality arranges itself in patterns of pristine reasoning. Each thought connects to another in a web of pure logic, offering clarity through intellectual precision. The universe is a equation waiting to be solved.",
         "destination": 4,
         "requirements": [],
         "effects": [
-          "LOGIC",
-          "ANALYTICAL"
+          "LOGIC"
         ]
       },
       {
-        "text": "Perhaps there's a scientific explanation for these visions. The neural pathways responsible for memory formation...",
+        "text": "Every phenomenon, no matter how mysterious, yields to methodical investigation. The mind is but a machine of extraordinary complexity—its outputs predictable, its processes measurable. Even these visions must follow natural law.",
         "destination": 4,
-        "requirements": [
-          "SCHOLAR"
-        ],
+        "requirements": [],
         "effects": [
           "RATIONALIST"
         ]
       },
       {
-        "text": "What does it matter? Dreams, reality—they're all constructs of a meaningless existence.",
+        "text": "Contemplate the futility of meaning-making. Whether these are memories or delusions matters little—both are equally void of inherent significance. The search for truth is merely another illusion to pass the time.",
         "destination": 4,
-        "requirements": [
-          "NIHILIST"
-        ],
+        "requirements": [],
         "effects": [
           "CYNICAL"
         ]
@@ -122,9 +114,7 @@
         "requirements": [
           "VETERAN"
         ],
-        "effects": [
-          "TACTICAL"
-        ]
+        "effects": []
       },
       {
         "text": "Analyse the water's source and flow pattern",
@@ -132,9 +122,7 @@
         "requirements": [
           "SCHOLAR"
         ],
-        "effects": [
-          "OBSERVANT"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -156,9 +144,7 @@
         "text": "Try to communicate with whoever's watching through the camera",
         "destination": 7,
         "requirements": [],
-        "effects": [
-          "DIPLOMATIC"
-        ]
+        "effects": []
       },
       {
         "text": "Use the rising water to test the room's seals and potential weak points",
@@ -166,9 +152,7 @@
         "requirements": [
           "LOGIC"
         ],
-        "effects": [
-          "METHODICAL"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -182,9 +166,7 @@
         "text": "Focus on that corner—the temperature difference might indicate something behind it",
         "destination": 8,
         "requirements": [],
-        "effects": [
-          "PERCEPTIVE"
-        ]
+        "effects": []
       },
       {
         "text": "Use the water pressure to test the door's seal at that corner",
@@ -192,9 +174,7 @@
         "requirements": [
           "LOGIC"
         ],
-        "effects": [
-          "RESOURCEFUL"
-        ]
+        "effects": []
       },
       {
         "text": "The corner's warmth suggests active machinery—perhaps there's a pattern to the humming",
@@ -202,9 +182,7 @@
         "requirements": [
           "SCHOLAR"
         ],
-        "effects": [
-          "TECHNICAL"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -212,35 +190,29 @@
   },
   {
     "id": 7,
-    "description": "The mechanical hum suddenly changes pitch, and you feel a vibration through the floor. The water's rise accelerates noticeably, accompanied by a gurgling sound from somewhere beneath. The light flickers more intensely now, casting chaotic shadows across the churning surface.",
+    "description": "You shout towards the camera, your voice echoing off the metal walls. 'Is anyone there? I need help!' But there's no response. The mechanical hum suddenly changes pitch, and you feel a vibration through the floor. The water's rise accelerates noticeably, accompanied by a gurgling sound from somewhere beneath. The light flickers more intensely now, casting chaotic shadows across the churning surface.",
     "options": [
       {
         "text": "Brace yourself against the walls and try to locate the water's entry point",
         "destination": 8,
         "requirements": [],
-        "effects": [
-          "PRACTICAL"
-        ]
+        "effects": []
       },
       {
-        "text": "The timing between light flickers and water surges might be meaningful",
+        "text": "Notice the timing between the light flickers and water surges; perhaps it's significant",
         "destination": 9,
         "requirements": [
-          "ANALYTICAL"
+          "RATIONALIST"
         ],
-        "effects": [
-          "PATTERN_RECOGNITION"
-        ]
+        "effects": []
       },
       {
-        "text": "Your captors are testing your reactions—remain calm and observe",
+        "text": "Conclude that your captors are testing you; remain calm and observe their next move",
         "destination": 9,
         "requirements": [
-          "STEADFAST"
+          "VOLITION"
         ],
-        "effects": [
-          "COMPOSED"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -248,35 +220,27 @@
   },
   {
     "id": 8,
-    "description": "Through the distortion of the water, you notice something peculiar—regular intervals of slightly darker tiles on the floor. They form a pattern that seems almost intentional. The water level has reached your thighs now, making movement more difficult, but these tiles might be significant.",
+    "description": "As you press your hands against the walls, you feel the vibrations intensify in certain spots. Looking down through the now waist-high water, you notice that some floor tiles are darker than others, forming an intentional pattern. The chill of the water seeps into your bones, but you push past the discomfort. This pattern might be significant.",
     "options": [
       {
-        "text": "Press the tiles in sequence—it might trigger a mechanism",
+        "text": "Press the darker tiles in sequence, hoping to trigger a mechanism",
         "destination": 9,
         "requirements": [],
-        "effects": [
-          "INVESTIGATIVE"
-        ]
+        "effects": []
       },
       {
-        "text": "Map the pattern mentally—it could be a code or blueprint",
+        "text": "Mentally map the pattern; perhaps it represents a code or blueprint you can use",
         "destination": 9,
         "requirements": [
           "LOGIC"
         ],
-        "effects": [
-          "SYSTEMATIC"
-        ]
+        "effects": []
       },
       {
-        "text": "The pattern aligns with the humming's source—they must be connected",
+        "text": "Realise that the pattern aligns with the source of the humming; they must be connected",
         "destination": 9,
-        "requirements": [
-          "TECHNICAL"
-        ],
-        "effects": [
-          "DEDUCTIVE"
-        ]
+        "requirements": [],
+        "effects": []
       }
     ],
     "requirements": [],
@@ -284,15 +248,13 @@
   },
   {
     "id": 9,
-    "description": "The water continues its relentless rise, now reaching your knees. The fluorescent light above flickers more intensely, creating a strobe-like effect that makes the situation even more disorienting. Through the rhythmic sound of water, you begin to hear something else—a mechanical whirring, perhaps from behind one of the walls.",
+    "description": "The water now reaches your chest, making movement arduous. The mechanical whirring grows louder, and you begin to hear another sound—a faint clicking, like gears turning. The flickering light adds to the surreal atmosphere. Every second counts, and you must decide your next move carefully.",
     "options": [
       {
-        "text": "Focus on the source of the mechanical sound",
+        "text": "Focus intently on the source of the mechanical sounds",
         "destination": 10,
         "requirements": [],
-        "effects": [
-          "ATTENTIVE"
-        ]
+        "effects": []
       },
       {
         "text": "The sound pattern suggests a periodic mechanism—perhaps tied to the water system",
@@ -301,9 +263,7 @@
           "SCHOLAR",
           "LOGIC"
         ],
-        "effects": [
-          "INSIGHT"
-        ]
+        "effects": []
       },
       {
         "text": "Remain calm and conserve energy—panic will only make things worse",
@@ -311,9 +271,7 @@
         "requirements": [
           "PACIFIST"
         ],
-        "effects": [
-          "COMPOSED"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -321,10 +279,10 @@
   },
   {
     "id": 10,
-    "description": "You close your eyes and hone in on the mechanical whirring. It's rhythmic, almost like a heartbeat. You trace the sound to the wall opposite the door. As you press your ear against the cold, damp surface, you feel a faint vibration. There's something behind this wall—a mechanism, perhaps an escape.",
+    "description": "You take a deep breath, the cold air filling your lungs. Closing your eyes, you hone in on the mechanical whirring. It's rhythmic, almost like a heartbeat, and seems to emanate from the wall opposite the door. Wading through the water, you press your ear against the cold, damp surface.  A faint vibration confirms your suspicion—there's something behind this wall.",
     "options": [
       {
-        "text": "Search for a hidden panel or loose brick",
+        "text": "Search meticulously for any hidden seams or panels that could grant access",
         "destination": 13,
         "requirements": [],
         "effects": [
@@ -332,14 +290,12 @@
         ]
       },
       {
-        "text": "Attempt to disrupt the mechanism through force",
+        "text": "Gather your strength to forcefully disrupt the wall",
         "destination": 14,
         "requirements": [
           "VETERAN"
         ],
-        "effects": [
-          "FORCEFUL"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -347,80 +303,63 @@
   },
   {
     "id": 11,
-    "description": "Your analytical mind kicks into overdrive. The intervals between the mechanical sounds are consistent—every 30 seconds. You deduce that it's likely a pump mechanism. If you can time it right, perhaps you can interfere with it or find a way to reverse the water flow.",
+    "description": "Your mind races as you dissect the sounds. The mechanical whirring occurs at precise intervals—every 30 seconds. You recall your knowledge of machinery and deduce that it's likely a pump system regulating the water flow. If you can interfere with this mechanism, you might slow down or stop the flooding. The challenge is figuring out how to access it with limited resources.",
     "options": [
       {
-        "text": "Attempt to locate the control panel for the pump",
+        "text": "Search for a control panel or access point within the cell that operates the pump",
         "destination": 13,
         "requirements": [],
-        "effects": [
-          "METHODICAL"
-        ]
+        "effects": []
       },
       {
         "text": "Use an object to jam the pump mechanism",
         "destination": 15,
         "requirements": [
-          "LOGIC"
+          "RATIONALIST"
         ],
-        "effects": [
-          "INNOVATIVE"
-        ]
+        "effects": []
       }
     ],
-    "requirements": [
-      "SCHOLAR",
-      "LOGIC"
-    ],
+    "requirements": [],
     "effects": []
   },
   {
     "id": 12,
-    "description": "You take deep breaths, steadying your nerves. Panic won't help you now. By conserving your energy, you can think more clearly. The water is cold, but your calmness helps you endure. As you survey the room once more, you notice subtle details that might assist in your escape.",
+    "description": "You close your eyes, steadying your breathing despite the icy water now reaching your shoulders. Panic will only hasten your demise. Focusing inward, you center yourself, allowing clarity to pierce through the haze of fear. In this calm state, subtle details emerge—air currents, temperature variations, the faint scent of rust.",
     "options": [
       {
-        "text": "Look for any tools or objects that can help",
+        "text": "Carefully search the cell for any tools or anomalies that might aid your escape",
         "destination": 13,
         "requirements": [],
-        "effects": [
-          "OBSERVANT"
-        ]
+        "effects": []
       },
       {
-        "text": "Meditate to preserve oxygen and warmth",
+        "text": "Begin meditative breathing to preserve warmth and oxygen",
         "destination": 16,
         "requirements": [
           "PACIFIST"
         ],
-        "effects": [
-          "TRANQUIL"
-        ]
+        "effects": []
       }
     ],
-    "requirements": [
-      "PACIFIST"
-    ],
+    "requirements": [],
     "effects": []
   },
   {
     "id": 13,
-    "description": "Feeling along the wall, your fingers find a slight indentation—a hairline crack that forms a rectangular outline. It's a hidden panel! You manage to pry it open, revealing a narrow tunnel descending into darkness. The mechanical sound is louder here, echoing up from the depths.",
+    "description": "You feel along the wall where the vibration is strongest. Your fingers discover a hairline crack forming a rectangular outline—a hidden panel! With effort, you pry it open, revealing a narrow tunnel descending into darkness. The mechanical sound is louder here, echoing up from the depths.",
     "options": [
       {
         "text": "Enter the tunnel cautiously",
         "destination": 17,
         "requirements": [],
-        "effects": [
-          "BRAVE"
-        ]
+        "effects": []
       },
       {
         "text": "Shout into the tunnel to gauge its depth",
         "destination": 18,
         "requirements": [],
-        "effects": [
-          "CAREFUL"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -428,105 +367,89 @@
   },
   {
     "id": 14,
-    "description": "Using all your strength, you pound against the wall where the vibration is strongest. The wall resists your efforts, but you notice a small pipe protruding near the floor. Perhaps you can use it to your advantage.",
+    "description": "Summoning every ounce of strength, you strike the wall where the vibration is strongest. The impact reverberates through your bones, but the wall holds firm. However, you notice a small pipe near the floor, partially concealed. Perhaps you can use it to your advantage. The water is now at your neck, and time is critical.",
     "options": [
       {
-        "text": "Rip the pipe out to use as a tool or weapon",
+        "text": "Attempt to rip out the pipe to use as a tool or weapon",
         "destination": 15,
         "requirements": [
-          "VOLITION"
+          "VOLITION",
+          "VETERAN"
         ],
         "effects": [
-          "RESOURCEFUL"
+          "PIPE"
         ]
       },
       {
-        "text": "Listen to the pipe for clues about what is beyond",
+        "text": "Listen through the pipe for sounds from the other side",
         "destination": 18,
         "requirements": [],
-        "effects": [
-          "ATTENTIVE"
-        ]
+        "effects": []
       }
     ],
-    "requirements": [
-      "VETERAN"
-    ],
+    "requirements": [],
     "effects": []
   },
   {
     "id": 15,
-    "description": "You find a loose metal grate on the floor, partially submerged. Using it, you attempt to jam the pump mechanism. The mechanical whirring stutters, and for a moment, the water flow seems to slow. But then, an alarm sounds—a high-pitched siren that echoes through the cell.",
+    "description": "You manage to pry the pipe loose, causing a gush of water to spray out. Thinking quickly, you use the pipe to jam the mechanism you believe controls the water flow. The mechanical whirring stutters, and the water's rise slows. Relief washes over you, but it's short-lived as an ear-splitting alarm blares. Red lights flash, and the situation escalates.",
     "options": [
       {
         "text": "Brace yourself for whatever comes next",
         "destination": 19,
         "requirements": [],
-        "effects": [
-          "STEADFAST"
-        ]
+        "effects": []
       },
       {
         "text": "Use the chaos to find another escape route",
         "destination": 13,
         "requirements": [
-          "LOGIC"
+          "RATIONALIST"
         ],
-        "effects": [
-          "QUICK_THINKING"
-        ]
+        "effects": []
       }
     ],
-    "requirements": [
-      "LOGIC"
-    ],
+    "requirements": [],
     "effects": []
   },
   {
     "id": 16,
-    "description": "As you meditate, your mind drifts to memories of a place bathed in sunlight, far from here. Your body relaxes, and in this state, you become acutely aware of a faint draft coming from behind the sink. There might be an opening.",
+    "description": "You sink into a meditative state, though perhaps it's merely your consciousness folding in upon itself like origami made of half-remembered dreams. Images float through your mind: sunlit fields that seem too perfect in their geometric precision, breezes that carry the scent of flowers whose names feel planted rather than recalled. The warmth these visions provide feels artificial, as if they were carefully crafted and inserted into your mind by some vast, unseen apparatus of memory manipulation. In this state of heightened awareness—or is it merely another layer of delusion?—you detect a draft behind the sink, its whisper carrying promises of escape. Yet something deeper nags at your thoughts: if these memories aren't truly yours, what exactly would you be escaping to? Perhaps the cold cell is more honest than the sunlit lies that masquerade as your past.",
     "options": [
       {
         "text": "Investigate behind the sink",
         "destination": 13,
         "requirements": [],
-        "effects": [
-          "AWARE"
-        ]
+        "effects": []
       },
       {
         "text": "Ignore it and continue meditating",
         "destination": 20,
-        "requirements": [],
-        "effects": [
-          "TRANSCENDENT"
-        ]
+        "requirements": [
+          "PACIFIST",
+          "NIHILIST"
+        ],
+        "effects": []
       }
     ],
-    "requirements": [
-      "PACIFIST"
-    ],
+    "requirements": [],
     "effects": []
   },
   {
     "id": 17,
-    "description": "You squeeze into the narrow tunnel, the sound of the mechanical whirring growing louder as you descend. The air is damp and the walls are slick. After a few meters, the tunnel opens up into a larger chamber illuminated by a dim, greenish light. In the center stands a large machine, its gears and pistons moving in a hypnotic rhythm.",
+    "description": "You squeeze into the narrow tunnel, the walls pressing close. The sound of the mechanical hum grows louder, vibrating through the metal. After several meters, the tunnel opens into a larger chamber bathed in an eerie neon light. Dominating the center is a massive machine, its gears and pistons moving in a mesmerising rhythm. The air is thick with the scent of oil and ozone.",
     "options": [
       {
-        "text": "Approach the machine and examine it",
+        "text": "Approach the machine cautiously to examine it more closely.",
         "destination": 21,
         "requirements": [],
-        "effects": [
-          "CURIOUS"
-        ]
+        "effects": []
       },
       {
         "text": "Look for an exit from the chamber",
         "destination": 22,
         "requirements": [],
-        "effects": [
-          "CAUTIOUS"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -534,23 +457,19 @@
   },
   {
     "id": 18,
-    "description": "Your voice echoes as you shout into the darkness, but no response comes back. However, you notice that the echo is distorted, suggesting the space beyond is irregular—perhaps with multiple passages or obstacles.",
+    "description": "You call out into the darkness, your voice echoing strangely. The distortion suggests irregular spaces ahead—perhaps multiple passages or obstacles. No response comes back, but the act of shouting makes you feel less alone. The water in the cell continues to rise, and you know you must make a decision quickly.",
     "options": [
       {
         "text": "Enter the tunnel, staying alert for traps",
         "destination": 17,
         "requirements": [],
-        "effects": [
-          "ALERT"
-        ]
+        "effects": []
       },
       {
-        "text": "Decide against entering the unknown and look for other options",
+        "text": "Decide against venturing into the unknown and seek other options",
         "destination": 19,
         "requirements": [],
-        "effects": [
-          "HESITANT"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -558,25 +477,30 @@
   },
   {
     "id": 19,
-    "description": "The siren's wail is deafening, and the water begins to rise faster. Red lights flash, and a voice over an intercom announces: 'Containment breach in cell block B.' You realize that your actions have triggered a security protocol.",
+    "description": "The siren's wail is overwhelming, and the water surges upward rapidly. Red emergency lights cast everything in a sinister glow. A voice crackles over a hidden intercom: 'Containment breach in cell block B. All units respond.' You realise your actions have escalated the situation, and you brace yourself for what's to come",
     "options": [
       {
         "text": "Prepare to confront whoever comes",
         "destination": 23,
         "requirements": [
-          "VETERAN"
+          "VETERAN",
+          "PIPE"
         ],
-        "effects": [
-          "READY"
-        ]
+        "effects": []
       },
       {
-        "text": "Hide and observe",
+        "text": "Hide and observe, hoping to find an opportunity amidst the chaos",
         "destination": 22,
         "requirements": [],
-        "effects": [
-          "STEALTHY"
-        ]
+        "effects": []
+      },
+      {
+        "text": "Attempt to disable the alarm system",
+        "destination": 21,
+        "requirements": [
+          "LOGIC"
+        ],
+        "effects": []
       }
     ],
     "requirements": [],
@@ -584,60 +508,57 @@
   },
   {
     "id": 20,
-    "description": "As you continue to meditate, a profound sense of peace envelops you. Time seems to slow, and the rising water no longer feels threatening. You hear a voice within, whispering secrets of the universe. Is this enlightenment or delusion?",
+    "description": "The meditation deepens like a spiral staircase descending into the basement of consciousness. Each step down reveals new chambers of memory that feel simultaneously foreign and intimate—architectural blueprints of mind that shouldn't exist, faces of researchers wearing expressions of clinical satisfaction, the sensation of cables threading through your cerebral cortex like hungry worms. The sunlit memories begin to crack, revealing darker truths beneath their porcelain surface. You sense you're approaching some vast and terrible understanding, a revelation that pulses behind the veil of amnesia like a malignant star. Too late, you realise why these memories were locked away—some truths are fatal to the mind that contains them. As your consciousness unravels thread by thread, you understand that forgetting was not a flaw in the system, but its primary feature.",
     "options": [
       {
-        "text": "Embrace the experience fully",
-        "destination": 101,
+        "text": "The darkness welcomes you home",
+        "destination": 0,
         "requirements": [],
         "effects": [
-          "ENLIGHTENED",
           "GAME OVER"
         ]
       },
       {
         "text": "Snap back to reality",
         "destination": 19,
-        "requirements": [],
-        "effects": [
-          "RESOLUTE"
-        ]
+        "requirements": [
+          "VOLITION"
+        ],
+        "effects": []
       }
     ],
     "requirements": [],
-    "effects": []
+    "effects": [
+      "DREAMEATER"
+    ]
   },
   {
     "id": 21,
-    "description": "The machine is a complex array of gears, wires, and pulsing lights. As you study it, you notice symbols etched into its surface—symbols that seem familiar. They match the fragmented visions from your dream. This machine is connected to you somehow.",
+    "description": "You approach the machine, its size dwarfing you. The gears turn with a precision that is almost hypnotic. Symbols etched into the metal catch your eye—they match the fragmented images from your dreams. Equations, diagrams, and strange symbols intertwine in a language that feels both alien and familiar. As you reach out to touch the surface, a jolt of energy pulses through you, filling your mind with a torrent of various sensations.",
     "options": [
       {
-        "text": "You can not figure anything out. Try something else.",
-        "destination": 23,
+        "text": "You can't make sense of it; look for another way",
+        "destination": 22,
         "requirements": [],
         "effects": []
       },
       {
-        "text": "Attempt to interface with the machine",
+        "text": "Attempt to interface with the machine, seeking answers",
         "destination": 24,
         "requirements": [
-          "SCHOLAR",
-          "LOGIC"
+          "LOGIC",
+          "SCHOLAR"
         ],
-        "effects": [
-          "CONNECTED"
-        ]
+        "effects": []
       },
       {
-        "text": "Destroy the machine to stop the water",
+        "text": "Destroy the machine to stop whatever process it's part of",
         "destination": 25,
         "requirements": [
           "VETERAN",
-          "VOLITION"
+          "PIPE"
         ],
-        "effects": [
-          "DESTRUCTIVE"
-        ]
+        "effects": []
       }
     ],
     "requirements": [],
@@ -645,23 +566,27 @@
   },
   {
     "id": 22,
-    "description": "You search the chamber's perimeter and find a corridor leading away from the noise and water. The walls are lined with pipes and cables. This could be your way out, but who knows what lies ahead?",
+    "description": "You circle the chamber, keeping a wary eye on the machine. An exit reveals itself—a corridor leading away from the noise and unsettling green light. The passage is narrow, with pipes and cables lining the walls. The air grows colder as you proceed, but the prospect of escape propels you ahead.",
     "options": [
       {
         "text": "Follow the corridor cautiously",
         "destination": 26,
         "requirements": [],
-        "effects": [
-          "HOPEFUL"
-        ]
+        "effects": []
       },
       {
         "text": "Return to the cell and try another approach",
         "destination": 19,
         "requirements": [],
-        "effects": [
-          "UNDECIDED"
-        ]
+        "effects": []
+      },
+      {
+        "text": "Sabotage the piping system to slow down pursuers",
+        "destination": 26,
+        "requirements": [
+          "SCHOLAR"
+        ],
+        "effects": []
       }
     ],
     "requirements": [],
@@ -669,42 +594,42 @@
   },
   {
     "id": 23,
-    "description": "You position yourself near the door, ready to confront whoever—or whatever—comes through. The sound of footsteps splashing through water grows louder. The door slides open, and figures in hazmat suits rush in. They seem surprised to see you standing defiantly.",
+    "description": "Positioning yourself beside the door, you ready yourself for confrontation. The water sloshes around you as footsteps approach. The door slides open, revealing figures in hazmat suits, their faces obscured behind tinted visors. They pause, momentarily stunned to see you standing defiantly.",
     "options": [
       {
-        "text": "Attack before they can react",
+        "text": "Attack before they can react, using the element of surprise",
         "destination": 27,
         "requirements": [
-          "VETERAN"
+          "VETERAN",
+          "PIPE"
         ],
-        "effects": [
-          "AGGRESSIVE"
-        ]
+        "effects": []
       },
       {
         "text": "Demand answers",
         "destination": 28,
         "requirements": [],
-        "effects": [
-          "DEMANDING"
-        ]
+        "effects": []
+      },
+      {
+        "text": "Attempt to slip past them",
+        "destination": 26,
+        "requirements": [],
+        "effects": []
       }
     ],
-    "requirements": [
-      "VETERAN"
-    ],
+    "requirements": [],
     "effects": []
   },
   {
     "id": 24,
-    "description": "As you touch the machine, a surge of energy courses through you. Visions flood your mind—memories of experiments, fragments of equations, faces of people you don't recognize but feel connected to. The machine hums louder, syncing with your heartbeat.",
+    "description": "Your hands meet the machine's surface with the intimacy of long-separated lovers. The connection floods your synapses with information that feels less like intrusion and more like remembrance: differential equations describing consciousness itself, schematics for devices that translate memory into manipulable data streams, protocols for the systematic erasure and reconstruction of human identity. Through the cascade of returning knowledge, you glimpse yourself moving through sterile corridors, your lab coat a pristine white against the institutional grey. Your hands—these same hands—adjusting dials, calibrating equipment, while silent figures in cells dream their prescribed dreams. The machine's resonance matches your heartbeat with cruel precision, each pulse drawing you deeper into recognition. You begin to understand that perhaps you are not the subject of this experiment, but rather... But the thought fragments as the machine's hunger grows. After all, even the architects of nightmares must eventually dream themselves.",
     "options": [
       {
-        "text": "Let the machine absorb you completely",
-        "destination": 101,
+        "text": "Feed the hunger. Let the machine absorb you completely",
+        "destination": 0,
         "requirements": [],
         "effects": [
-          "SYNCHRONIZED",
           "GAME OVER"
         ]
       },
@@ -714,44 +639,167 @@
         "requirements": [
           "VOLITION"
         ],
-        "effects": [
-          "ESCAPED"
-        ]
+        "effects": []
       }
     ],
-    "requirements": [
-      "SCHOLAR",
-      "LOGIC"
-    ],
-    "effects": []
+    "requirements": [],
+    "effects": [
+      "DREAMWEAVER"
+    ]
   },
   {
     "id": 25,
-    "description": "With determination, you begin to dismantle the machine, pulling wires and smashing components. The machine sputters and sparks, and the water flow begins to recede. But the destruction triggers another alarm. You hear voices shouting and footsteps approaching.",
+    "description": "Determination fuels your actions as you begin dismantling the machine. You rip out wires and smash components with any tool at hand. Sparks fly, and the gears grind to a halt. The water flow slows, then stops entirely. Relief is short-lived as red emergency lights flood the chamber, and alarms blare. Footsteps and urgent voices echo from the corridors—you've attracted attention.",
     "options": [
       {
-        "text": "Hide and wait for an opportunity",
+        "text": "Hide and wait for an opportunity to slip away unnoticed",
         "destination": 22,
         "requirements": [],
-        "effects": [
-          "STEALTHY"
-        ]
+        "effects": []
       },
       {
-        "text": "Confront whoever is coming",
+        "text": "Prepare to confront whoever is coming",
         "destination": 23,
+        "requirements": [],
+        "effects": []
+      }
+    ],
+    "requirements": [],
+    "effects": []
+  },
+  {
+    "id": 26,
+    "description": "You advance down the corridor, the metallic clang of your footsteps echoing softly. The path splits ahead. To the left, a tunnel slopes upward, and a faint breeze carries the scent of fresh air—possibly an exit. To the right, the path descends into darkness, but you hear distant voices and the hum of machinery.",
+    "options": [
+      {
+        "text": "Head towards the upward-sloping tunnel, seeking escape",
+        "destination": 29,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Take the downward path; perhaps answers lie that way",
+        "destination": 30,
+        "requirements": [],
+        "effects": []
+      }
+    ],
+    "requirements": [],
+    "effects": []
+  },
+  {
+    "id": 27,
+    "description": "With swift precision, you lunge at the nearest figure. Your training takes over as you deliver a disabling strike. The others react, but the confined space and rising water hinder them. You grapple with another, managing to knock them off balance. Amidst the struggle, an alarm on one of their devices starts flashing—a distress signal.",
+    "options": [
+      {
+        "text": "Redirect your attention and disable the alarm device before reinforcements arrive",
+        "destination": 31,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Use one of the figures as a hostage to negotiate your escape",
+        "destination": 32,
         "requirements": [
           "VETERAN"
         ],
+        "effects": []
+      }
+    ],
+    "requirements": [],
+    "effects": []
+  },
+  {
+    "id": 28,
+    "description": "You shout over the noise, demanding to know what's happening. The figures exchange glances. One steps forward and says, 'You're not supposed to be awake. This complicates things.' Before you can respond, you feel a pinch as a needle enters your vein, and everything goes black.",
+    "options": [
+      {
+        "text": "Embrace the darkness",
+        "destination": 0,
+        "requirements": [],
         "effects": [
-          "CONFRONTATIONAL"
+          "GAME OVER"
         ]
       }
     ],
-    "requirements": [
-      "VETERAN",
-      "VOLITION"
+    "requirements": [],
+    "effects": []
+  },
+  {
+    "id": 29,
+    "description": "You choose the upward-sloping tunnel, each step bringing you closer to the faint scent of fresh air. The walls here are damp, and small roots protrude from cracks in the stone, suggesting you're nearing the surface. After several minutes, you arrive at a heavy metal grate blocking your path. Light filters through from the other side, casting a hopeful glow.",
+    "options": [
+      {
+        "text": "Attempt to force the grate open using your strength",
+        "destination": 33,
+        "requirements": [
+          "VETERAN",
+          "VOLITION"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Signal for help through the window",
+        "destination": 35,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Search for a mechanism or latch that might open the grate",
+        "destination": 34,
+        "requirements": [
+          "RATIONALIST",
+          "LOGIC"
+        ],
+        "effects": []
+      }
     ],
+    "requirements": [],
+    "effects": []
+  },
+  {
+    "id": 30,
+    "description": "You descend into the depths, the air growing colder and the darkness more profound. The hum of machinery intensifies, and faint voices echo through the tunnels. Eventually, you enter a vast underground chamber filled with rows of pods emitting a soft, eerie glow. Peering into one, you see a person suspended in a viscous liquid, eyes closed as if in deep sleep.",
+    "options": [
+      {
+        "text": "Investigate the pods further, searching for clues about your situation",
+        "destination": 36,
+        "requirements": [
+          "SCHOLAR"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Look for a control panel or terminal to access information",
+        "destination": 37,
+        "requirements": [
+          "RATIONALIST",
+          "LOGIC"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Decide this is too dangerous and attempt to leave the chamber quietly",
+        "destination": 38,
+        "requirements": [],
+        "effects": []
+      }
+    ],
+    "requirements": [],
+    "effects": []
+  },
+  {
+    "id": 31,
+    "description": "Descending further, the air grows colder. The passage opens into a vast underground cavern filled with strange machinery, numerous cell doors similar to what you've seen, terminals, wires, and lab equipment. ",
+    "options": [
+      {
+        "text": "",
+        "destination": 0,
+        "requirements": [],
+        "effects": []
+      }
+    ],
+    "requirements": [],
     "effects": []
   }
 ]

@@ -39,7 +39,10 @@ class GameData {
   }
 
   checkRequirements(requirements: string[], playerEffects: string[]): boolean {
-    return requirements.every((req) => playerEffects.includes(req));
+    return (
+      requirements.length === 0 ||
+      requirements.some((req) => playerEffects.includes(req))
+    );
   }
 }
 

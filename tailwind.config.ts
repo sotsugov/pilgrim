@@ -60,6 +60,46 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      animation: {
+        'fade-up': 'fade-up 0.4s ease-in-out',
+        'fade-down': 'fade-down 0.4s ease-in-out',
+        'fade-in': 'fade-in 0.4s ease-in-out',
+        'fade-out': 'fade-out 0.4s ease-in-out',
+      },
+      keyframes: {
+        'fade-up': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(10px)',
+          },
+          '80%': { opacity: '0.6' },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0px)',
+          },
+        },
+        'fade-down': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-10px)',
+          },
+          '80%': { opacity: '0.6' },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0px)',
+          },
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '80%': { opacity: '0.6' },
+          '100%': { opacity: '1' },
+        },
+        'fade-out': {
+          '0%': { opacity: '1' },
+          '80%': { opacity: '0.6' },
+          '100%': { opacity: '0' },
+        },
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],
