@@ -20,7 +20,7 @@
     "options": [
       {
         "text": "A city square unfolds like a malevolent flower. The bodies are arranged in patterns that suggest meaning while denying it. The person kneeling before you is both stranger and someone familiar, their tears marking the coordinates of your shared delusion. The gun is merely a prop in this theatre of cruelty.",
-        "destination": 4,
+        "destination": 3,
         "requirements": [],
         "effects": [
           "VETERAN"
@@ -88,9 +88,7 @@
           "CYNICAL"
         ]
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 4,
@@ -124,9 +122,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 5,
@@ -154,9 +150,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 6,
@@ -184,9 +178,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 7,
@@ -214,9 +206,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 8,
@@ -237,14 +227,12 @@
         "effects": []
       },
       {
-        "text": "Realise that the pattern aligns with the source of the humming; they must be connected",
+        "text": "realise that the pattern aligns with the source of the humming; they must be connected",
         "destination": 9,
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 9,
@@ -273,13 +261,11 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 10,
-    "description": "You take a deep breath, the cold air filling your lungs. Closing your eyes, you hone in on the mechanical whirring. It's rhythmic, almost like a heartbeat, and seems to emanate from the wall opposite the door. Wading through the water, you press your ear against the cold, damp surface.  A faint vibration confirms your suspicion—there's something behind this wall.",
+    "description": "You take a deep breath, the cold air filling your lungs. Closing your eyes, you hone in on the mechanical whirring. It's rhythmic, almost like a heartbeat, and seems to emanate from the wall opposite the door. Wading through the water, you press your ear against the cold, damp surface. A faint vibration confirms your suspicion—there's something behind this wall.",
     "options": [
       {
         "text": "Search meticulously for any hidden seams or panels that could grant access",
@@ -297,9 +283,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 11,
@@ -319,9 +303,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 12,
@@ -341,9 +323,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 13,
@@ -361,9 +341,7 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 14,
@@ -386,9 +364,7 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 15,
@@ -408,9 +384,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 16,
@@ -433,11 +407,13 @@
       }
     ],
     "requirements": [],
-    "effects": []
+    "effects": [
+      "DREAMEATER"
+    ]
   },
   {
     "id": 17,
-    "description": "You squeeze into the narrow tunnel, the walls pressing close. The sound of the mechanical hum grows louder, vibrating through the metal. After several meters, the tunnel opens into a larger chamber bathed in an eerie neon light. Dominating the center is a massive machine, its gears and pistons moving in a mesmerising rhythm. The air is thick with the scent of oil and ozone.",
+    "description": "You squeeze into the narrow tunnel, the walls pressing close. The sound of the mechanical hum grows louder, vibrating through the metal. After several meters, the tunnel opens into a larger chamber bathed in an eerie neon light. Dominating the center is a massive machine, its gears and pistons moving in a mesmerizing rhythm. The air is thick with the scent of oil and ozone.",
     "options": [
       {
         "text": "Approach the machine cautiously to examine it more closely.",
@@ -451,9 +427,7 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 18,
@@ -471,13 +445,11 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 19,
-    "description": "The siren's wail is overwhelming, and the water surges upward rapidly. Red emergency lights cast everything in a sinister glow. A voice crackles over a hidden intercom: 'Containment breach in cell block B. All units respond.' You realise your actions have escalated the situation, and you brace yourself for what's to come",
+    "description": "The siren's wail is overwhelming, and the water surges upward rapidly. Red emergency lights cast everything in a sinister glow. A voice crackles over a hidden intercom: 'Containment breach in cell block B. All units respond.' You realise your actions have escalated the situation, and you brace yourself for what's to come.",
     "options": [
       {
         "text": "Prepare to confront whoever comes",
@@ -502,9 +474,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 20,
@@ -560,9 +530,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 22,
@@ -588,9 +556,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 23,
@@ -617,9 +583,7 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 24,
@@ -663,9 +627,7 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 26,
@@ -683,9 +645,7 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 27,
@@ -705,9 +665,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 28,
@@ -753,9 +711,7 @@
         ],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 30,
@@ -784,16 +740,14 @@
         "requirements": [],
         "effects": []
       }
-    ],
-    "requirements": [],
-    "effects": []
+    ]
   },
   {
     "id": 31,
-    "description": "Descending further, the air grows colder. The passage opens into a vast underground cavern filled with strange machinery, numerous cell doors similar to what you've seen, terminals, wires, and lab equipment. ",
+    "description": "Descending further, the air grows colder. The passage opens into a vast underground cavern filled with strange machinery, numerous cell doors similar to what you've seen, terminals, wires, and lab equipment.",
     "options": [
       {
-        "text": "",
+        "text": "Explore the cavern to uncover more about the facility",
         "destination": 0,
         "requirements": [],
         "effects": []
@@ -801,5 +755,717 @@
     ],
     "requirements": [],
     "effects": []
+  },
+  {
+    "id": 32,
+    "description": "You hold the figure at gunpoint, demanding answers. They tremble but comply, revealing that the facility conducts experiments on consciousness manipulation. Your role as a captor was part of a larger scheme to control and erase identities.",
+    "options": [
+      {
+        "text": "Use the hostage to negotiate your freedom",
+        "destination": 34,
+        "requirements": [
+          "VETERAN"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Release the hostage and confront the captors together",
+        "destination": 36,
+        "requirements": [],
+        "effects": []
+      }
+    ],
+    "requirements": [],
+    "effects": []
+  },
+  {
+    "id": 33,
+    "description": "You summon all your strength and push against the grate. It groans under the pressure, inching open. Just as you think you might succeed, the structure gives way, and a loud crash echoes through the tunnel. The path ahead is now open, but the noise has likely alerted others.",
+    "options": [
+      {
+        "text": "Run through the open grate towards the light",
+        "destination": 39,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Reinforce the grate to prevent others from following",
+        "destination": 40,
+        "requirements": [
+          "VOLITION"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "description": "You search for a mechanism or latch near the grate. After a few moments, you find a hidden switch concealed beneath a loose stone. Flipping it, the grate slides open silently, allowing you to climb out into the fresh air. Freedom is within reach, but you can't shake the feeling that you're still being watched.",
+    "options": [
+      {
+        "text": "Exit the facility quickly before anyone notices",
+        "destination": 41,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Investigate further despite the risk",
+        "destination": 42,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "description": "You try to signal for help through the window, but the metal grate is too thick and unyielding. Frustration mounts as you realise that external assistance is unlikely to arrive in time.",
+    "options": [
+      {
+        "text": "Attempt to remove the grate piece by piece",
+        "destination": 33,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Focus on finding another way out",
+        "destination": 34,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "description": "As you explore the pods or confront the captors, you uncover deeper layers of the facility's operations. The realization that your identity has been manipulated drives you to seek the truth behind the disappearances.",
+    "options": [
+      {
+        "text": "Continue delving into the facility's secrets",
+        "destination": 37,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Attempt to shut down the entire operation",
+        "destination": 43,
+        "requirements": [
+          "VOLITION",
+          "SCHOLAR"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "description": "You locate a control panel filled with data streams and security feeds. Accessing it requires both logical reasoning and scholarly knowledge to interpret the complex systems at play.",
+    "options": [
+      {
+        "text": "Analyze the data to find a way to disable the facility's operations",
+        "destination": 44,
+        "requirements": [
+          "RATIONALIST",
+          "LOGIC"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Use the terminal to communicate with external contacts for help",
+        "destination": 45,
+        "requirements": [
+          "SCHOLAR"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "description": "Deciding that staying poses too great a risk, you quietly back away from the chamber. The sound of approaching footsteps forces you to move swiftly, but the exit remains elusive.",
+    "options": [
+      {
+        "text": "Return to the corridor and choose a different path",
+        "destination": 26,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Attempt to hide in the shadows until the danger passes",
+        "destination": 46,
+        "requirements": [
+          "PACIFIST"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "description": "You sprint through the open grate, the fresh air filling your lungs. Behind you, the facility's noises fade, but a lingering sense of unease remains. Freedom is yours—for now.",
+    "options": [
+      {
+        "text": "Explore the outside world to uncover the mystery of the disappearances",
+        "destination": 47,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Seek immediate safety and plan your next move",
+        "destination": 48,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "description": "You reinforce the grate using nearby materials, ensuring that no one can follow you easily. This defensive action buys you time, but the urgency to escape remains.",
+    "options": [
+      {
+        "text": "Use the reinforced grate to block pursuers and seek another exit",
+        "destination": 49,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Focus on repairing any damage to prevent the alarm from escalating",
+        "destination": 50,
+        "requirements": [
+          "ANALYTICAL"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "description": "You make a swift exit from the facility, the weight of your experiences pressing down on you. The truth behind the disappearances is still out there, waiting to be uncovered.",
+    "options": [
+      {
+        "text": "Begin your investigation into the disappearances",
+        "destination": 51,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Seek allies who can help you unravel the mystery",
+        "destination": 52,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "description": "Choosing to delve deeper despite the risks, you uncover a hidden agenda within the facility—an experiment to control and manipulate memories on a mass scale. The implications are staggering.",
+    "options": [
+      {
+        "text": "Expose the facility's secrets to the world",
+        "destination": 53,
+        "requirements": [
+          "VOLITION"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Take control of the facility to end the experiments",
+        "destination": 54,
+        "requirements": [
+          "VETERAN",
+          "SCHOLAR"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "description": "With determination, you initiate a shutdown sequence for the facility. Systems begin to power down, and the machinery grinds to a halt. However, the process triggers a security lockdown, trapping you inside unless you can find an alternative escape route.",
+    "options": [
+      {
+        "text": "Search for an emergency exit now that systems are down",
+        "destination": 55,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Use the shutdown to overpower any remaining guards",
+        "destination": 56,
+        "requirements": [
+          "VETERAN"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "description": "Analyzing the data reveals a central control system that manages all experimental operations. Disabling it could stop the disappearances, but it requires precise execution.",
+    "options": [
+      {
+        "text": "Attempt to hack the control system remotely",
+        "destination": 57,
+        "requirements": [
+          "SCHOLAR",
+          "LOGIC"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Physically dismantle the control panel to ensure it's disabled",
+        "destination": 58,
+        "requirements": [
+          "VOLITION"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "description": "Using the terminal, you attempt to contact external parties. Your messages are cryptic but convey the urgency of the situation. Whether they reach anyone remains to be seen.",
+    "options": [
+      {
+        "text": "Wait for a response while exploring further",
+        "destination": 59,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Attempt to manually deliver the information to ensure it's received",
+        "destination": 60,
+        "requirements": [
+          "RATIONALIST"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "description": "You hide in the shadows, your breath steady as you wait for the danger to pass. Moments stretch into eternity, but eventually, the footsteps fade. You breathe a sigh of relief, knowing you've survived this encounter.",
+    "options": [
+      {
+        "text": "Continue exploring the facility in the now quiet environment",
+        "destination": 61,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Attempt to unlock the cell door silently",
+        "destination": 62,
+        "requirements": [
+          "ANALYTICAL"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "description": "Outside the facility, the world feels both familiar and alien. The mystery of the disappearances looms large as you begin your quest to uncover the truth.",
+    "options": [
+      {
+        "text": "Start investigating the locations where people have disappeared",
+        "destination": 63,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Seek out others who have survived similar experiences",
+        "destination": 64,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "description": "Prioritizing your safety, you find a secluded spot to rest and gather your thoughts. Planning your next move is crucial for survival.",
+    "options": [
+      {
+        "text": "Develop a plan to return to the facility with reinforcements",
+        "destination": 65,
+        "requirements": [
+          "VOLITION"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Reach out to external contacts for assistance",
+        "destination": 66,
+        "requirements": [
+          "SCHOLAR"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "description": "Blocking the grate prevents immediate pursuit, but the urgency to escape intensifies. The corridor behind you is still accessible, offering new paths to explore.",
+    "options": [
+      {
+        "text": "Return to the corridor and choose a different path",
+        "destination": 26,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Use the blocked grate as a defensive barrier while you search for another exit",
+        "destination": 55,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "description": "Focusing on the damage, you work meticulously to repair any disruptions caused by your actions. Stabilizing the facility's systems reduces the immediate threat but leaves underlying issues unresolved.",
+    "options": [
+      {
+        "text": "Continue repairing the systems to fully restore order",
+        "destination": 67,
+        "requirements": [
+          "ANALYTICAL"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Cease repairs and seek an alternative solution",
+        "destination": 68,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "description": "Your investigation leads you to uncover patterns and connections between the disappearances. Each clue brings you closer to understanding the sinister forces at play.",
+    "options": [
+      {
+        "text": "Follow the latest lead to its source",
+        "destination": 69,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Collaborate with local authorities to pool resources",
+        "destination": 70,
+        "requirements": [
+          "PACIFIST"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "description": "Seeking allies, you find others who have experienced similar disappearances. Together, you form a pact to expose the truth and bring the culprits to justice.",
+    "options": [
+      {
+        "text": "Organise a covert operation to infiltrate the responsible organization",
+        "destination": 71,
+        "requirements": [
+          "VOLITION",
+          "VETERAN"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Gather evidence and present your case to the public",
+        "destination": 72,
+        "requirements": [
+          "SCHOLAR"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "description": "Exposing the facility's secrets sends shockwaves through society. Public outrage forces authorities to take action, but the true extent of the conspiracy remains hidden.",
+    "options": [
+      {
+        "text": "Continue your investigation to uncover deeper layers",
+        "destination": 73,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Protect the survivors and ensure their safety",
+        "destination": 74,
+        "requirements": [
+          "PACIFIST"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "description": "Taking control of the facility allows you to halt the experiments and free the captives. However, maintaining control requires constant vigilance against residual systems and potential threats.",
+    "options": [
+      {
+        "text": "Secure the facility and monitor for any further threats",
+        "destination": 75,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Shut down all operations permanently",
+        "destination": 76,
+        "requirements": [
+          "VETERAN",
+          "SCHOLAR"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "description": "Searching for an emergency exit, you find a hidden door behind a stack of pipes. It leads to a maintenance tunnel that promises a route out of the facility.",
+    "options": [
+      {
+        "text": "Proceed through the maintenance tunnel quickly",
+        "destination": 77,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Secure the exit to prevent pursuers from following",
+        "destination": 78,
+        "requirements": [
+          "VOLITION"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "description": "Overpowering the remaining guards, you take control of the security systems. The facility is now under your command, but the moral implications weigh heavily on you.",
+    "options": [
+      {
+        "text": "Use the security systems to free all captives",
+        "destination": 79,
+        "requirements": [
+          "PACIFIST"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Repurpose the security systems to protect against external threats",
+        "destination": 80,
+        "requirements": [
+          "LOGIC"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "description": "Hacking into the control system proves challenging, but your scholarly knowledge and logical reasoning allow you to bypass security protocols. The system begins to shut down, stopping all experimental operations.",
+    "options": [
+      {
+        "text": "Maintain control of the system to ensure shutdown",
+        "destination": 81,
+        "requirements": [
+          "SCHOLAR",
+          "LOGIC"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Allow the system to continue functioning while you escape",
+        "destination": 82,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "description": "Physically dismantling the control panel disrupts the facility's operations. The experiments come to an abrupt halt, but the act triggers a fail-safe mechanism that seals the chamber and initiates a lockdown.",
+    "options": [
+      {
+        "text": "Find a way to deactivate the fail-safe",
+        "destination": 83,
+        "requirements": [
+          "LOGIC"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Use the chaos to find another escape route",
+        "destination": 84,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "description": "Waiting for a response, you explore further but receive no reply. The lack of communication deepens the mystery, leaving you uncertain about the next steps.",
+    "options": [
+      {
+        "text": "Continue waiting and observe any changes",
+        "destination": 85,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Abandon waiting and seek alternative solutions",
+        "destination": 86,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "description": "Manually delivering the information involves traversing through dangerous areas of the facility. Success depends on your ability to navigate without attracting attention.",
+    "options": [
+      {
+        "text": "Proceed with caution through the high-risk areas",
+        "destination": 87,
+        "requirements": [
+          "VETERAN"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Find a stealthier route to minimise risk",
+        "destination": 88,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 61,
+    "description": "Exploring the facility reveals hidden research labs and documentation detailing the extent of the consciousness experiments. Each discovery adds to the complexity of your mission.",
+    "options": [
+      {
+        "text": "Gather all available information for analysis",
+        "destination": 89,
+        "requirements": [
+          "SCHOLAR"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Use the information to find weaknesses in the facility's design",
+        "destination": 90,
+        "requirements": [
+          "LOGIC"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "description": "Attempting to unlock the cell door silently, you manage to bypass some security measures. The door slowly creaks open, granting you access to previously unreachable areas.",
+    "options": [
+      {
+        "text": "Move swiftly through the opened door to avoid detection",
+        "destination": 91,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Secure the door to prevent any potential threats",
+        "destination": 92,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "description": "Investigating the locations of disappearances leads you to uncover a network of underground facilities conducting similar experiments. The scope of the conspiracy is vast.",
+    "options": [
+      {
+        "text": "Map out all known facilities to strategise your next move",
+        "destination": 93,
+        "requirements": [
+          "LOGIC"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Infiltrate one of the other facilities to gather more evidence",
+        "destination": 94,
+        "requirements": [
+          "VETERAN"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 64,
+    "description": "Finding others who have survived similar experiences, you form a coalition dedicated to exposing the truth. United, your efforts gain momentum.",
+    "options": [
+      {
+        "text": "Coordinate joint operations to maximise impact",
+        "destination": 95,
+        "requirements": [],
+        "effects": []
+      },
+      {
+        "text": "Divide tasks based on each member's strengths",
+        "destination": 96,
+        "requirements": [],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 65,
+    "description": "Planning to return to the facility with reinforcements, you prepare your strategy meticulously. Success depends on precise coordination and resource management.",
+    "options": [
+      {
+        "text": "Develop a detailed attack plan targeting key facility components",
+        "destination": 97,
+        "requirements": [
+          "ANALYTICAL",
+          "VETERAN"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Gather necessary equipment and supplies for the mission",
+        "destination": 98,
+        "requirements": [
+          "RATIONALIST"
+        ],
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "description": "Reaching out to external contacts, you establish communication channels to aid in your mission. Support begins to materialise as allies join your cause.",
+    "options": [
+      {
+        "text": "Organise a press conference to publicise your findings",
+        "destination": 99,
+        "requirements": [
+          "SCHOLAR"
+        ],
+        "effects": []
+      },
+      {
+        "text": "Coordinate with international agencies for a global response",
+        "destination": 100,
+        "requirements": [
+          "LOGIC"
+        ],
+        "effects": []
+      }
+    ]
   }
 ]

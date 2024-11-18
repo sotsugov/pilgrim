@@ -14,28 +14,23 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="flex flex-col gap-6 items-center text-center">
-        <div>
-          <div className="font-logo text-[6rem] -tracking-[0.5rem] [text-shadow:_0_0_2px_#ffffff,_0_0_5px_#6366f1]">
-            PILGRIM
-          </div>
-          <div className="text-xl">
-            Delve Deep. Decipher the Unknown. Determine Your Fate.
-          </div>
-        </div>
-        <div className="tracking-wide text-muted break-words">
-          In a world where the boundaries of reality are fragile, a series of
-          unexplained disappearances beckons the brave to seek answers. Embark
-          on a journey where every thread pulled can unravel a tapestry of
-          truths or weave a web of deceit.
-        </div>
-        <div className="flex items-center">
-          <Button size="lg" onClick={handleNewGame}>
-            Begin Anew
-          </Button>
-        </div>
+    <div className="flex flex-col gap-8 items-center justify-center text-center">
+      <div className="bg-gradient-to-br from-muted-foreground to-foreground bg-clip-text text-7xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm uppercase">
+        Pilgrim
       </div>
+      <div className="text-xl text-muted-foreground">
+        Delve Deep. Decipher the Unknown. Determine Your Fate.
+      </div>
+
+      <div className="text-muted tracking-wide">
+        In a world where the boundaries of reality are fragile, a series of
+        unexplained disappearances beckons the brave to seek answers. Embark on
+        a journey where every thread pulled can unravel a tapestry of truths or
+        weave a web of deceit.
+      </div>
+      <Button size="lg" onClick={handleNewGame}>
+        Begin Anew
+      </Button>
     </div>
   );
 }
