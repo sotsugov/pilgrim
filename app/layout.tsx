@@ -1,10 +1,11 @@
 import { ThemeProvider } from '@/components/theme-provider';
-import { Rethink_Sans } from 'next/font/google';
+import { Inter as Font_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
 
-const sans = Rethink_Sans({
+const sans = Font_Sans({
   variable: '--font-sans',
+  subsets: ['latin-ext'],
   weight: 'variable',
 });
 
