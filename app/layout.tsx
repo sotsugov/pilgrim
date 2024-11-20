@@ -1,18 +1,12 @@
 import { ThemeProvider } from '@/components/theme-provider';
+import { Inter as Font_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
 import './globals.css';
 
-const sans = localFont({
-  src: './fonts/RethinkSans-VariableFont_wght.ttf',
+const sans = Font_Sans({
   variable: '--font-sans',
-  weight: '100 900',
-});
-
-const title = localFont({
-  src: './fonts/Modelo-Thin.woff',
-  variable: '--font-title',
-  display: 'swap',
+  subsets: ['latin-ext'],
+  weight: 'variable',
 });
 
 export const metadata: Metadata = {
@@ -27,11 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${sans.variable} ${title.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="en" className={`${sans.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-background text-foreground">
         <ThemeProvider
           attribute="class"

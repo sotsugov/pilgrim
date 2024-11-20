@@ -2,8 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Inter, Arial, Helvetica, sans-serif;
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
 }
 
 @layer base {
@@ -47,11 +54,11 @@ body {
     --primary: 240 13.73% 98%;
     --primary-foreground: 240 13.73% 10%;
 
-    --secondary: 240 13.73% 15.9%;
+    --secondary: 220 13% 10%;
     --secondary-foreground: 240 13.73% 98%;
 
     --muted: 240 13.73% 58%;
-    --muted-foreground: 240 13.73% 65%;
+    --muted-foreground: 220 14% 70%;
 
     --accent: 240 13.73% 15.9%;
     --accent-foreground: 240 13.73% 98%;

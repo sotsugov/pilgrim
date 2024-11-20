@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useGameStore } from '@/store/game-store';
-import { PilgrimIcon } from '@/components/logo';
 
 export default function GameLayout({
   children,
@@ -21,12 +20,12 @@ export default function GameLayout({
 
   return (
     <div className="flex flex-col">
-      <header className="w-full">
+      <header className="w-full p-2">
         <div className="container mx-auto p-6 flex justify-between items-center animate-fade-down">
           <Link href="/" className="flex items-center">
-            <PilgrimIcon className="h-12 w-12 text-muted" />
+            <div className="font-semibold tracking-wide uppercase">Pilgrim</div>
           </Link>
-          <Button variant={'outline'} onClick={handleReset} className="mr-2">
+          <Button variant={'outline'} onClick={handleReset}>
             Reset
           </Button>
         </div>
