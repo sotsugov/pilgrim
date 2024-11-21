@@ -20,8 +20,8 @@ export default function GameLayout({
 
   return (
     <div className="flex flex-col">
-      <header className="w-full p-2">
-        <div className="container mx-auto p-6 flex justify-between items-center animate-fade-down">
+      <header className="w-full">
+        <div className="container mx-auto p-4 flex justify-between items-center animate-fade-down">
           <Link href="/" className="flex items-center">
             <div className="font-semibold tracking-wide uppercase">Pilgrim</div>
           </Link>

@@ -52,7 +52,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans)'],
+        sans: [
+          'var(--font-sans)',
+          { fontFeatureSettings: '"ss01", "tnum", "pnum"' },
+        ],
         logo: ['var(--font-title)'],
       },
       borderRadius: {

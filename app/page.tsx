@@ -28,7 +28,7 @@ export default function Home() {
         a journey where every thread pulled can unravel a tapestry of truths or
         weave a web of deceit.
       </div>
-      <Button size="lg" onClick={handleNewGame}>
+      <Button size="lg" variant={'outline'} onClick={handleNewGame}>
         Begin Anew
       </Button>
     </div>

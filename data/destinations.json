@@ -16,7 +16,7 @@
   },
   {
     "id": 1,
-    "description": "Your eyes are closed, yet visions penetrate the thin membrane of consciousness like needles through silk. They dance at the edges of comprehension—fragments of a life that may or may not be yours, memories that could be implanted by the vast conspiracy of existence itself. As you attempt to piece together these shards of identity, they form patterns that mock the very notion of selfhood.",
+    "description": "Your eyes are closed, yet visions penetrate the thin membrane of consciousness like needles through silk. They dance at the edges of comprehension—fragments of a life blurred and elusive, memories fractured and fleeting as if scattered by an indifferent hand. As you attempt to piece together these shards of identity, they twist into patterns that dissolve the solidity of self, leaving only the echo of something once whole, now irretrievably fractured.",
     "options": [
       {
         "text": "A city square unfolds like a malevolent flower. The bodies are arranged in patterns that suggest meaning while denying it. The person kneeling before you is both stranger and someone familiar, their tears marking the coordinates of your shared delusion. The gun is merely a prop in this theatre of cruelty.",
@@ -227,7 +227,7 @@
         "effects": []
       },
       {
-        "text": "realise that the pattern aligns with the source of the humming; they must be connected",
+        "text": "Realise that the pattern aligns with the source of the humming; they must be connected",
         "destination": 9,
         "requirements": [],
         "effects": []

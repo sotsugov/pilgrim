@@ -72,15 +72,17 @@ export default function GamePage() {
   }
 
   return (
-    <div className="w-full mx-auto px-4">
+    <div className="w-full mx-auto">
       <Card className="w-full">
         <CardHeader>
           {currentDestination.title && (
-            <CardTitle className="text-xl mb-4">
+            <CardTitle className="text-xl p-2">
               {currentDestination.title}
             </CardTitle>
           )}
-          <div>{currentDestination.description}</div>
+          <div className="p-2 break-words">
+            {currentDestination.description}
+          </div>
         </CardHeader>
         <Separator />
         <CardContent className="space-y-4 mt-6">
@@ -96,9 +98,9 @@ export default function GamePage() {
                 className="block w-full p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent/80 transition-colors duration-200 no-underline"
                 scroll={false}
               >
-                <div className="flex gap-2">
-                  <span className="font-semibold flex-shrink-0 inline-flex items-center justify-center size-6 rounded-full bg-secondary text-foreground">
-                    {index + 1}
+                <div className="flex gap-1">
+                  <span className="font-semibold flex-shrink-0 inline-flex items-center justify-center size-6 text-foreground">
+                    {index + 1}.
                   </span>
                   <div className="flex-grow overflow-hidden">
                     {option.requirements.length > 0 && (
