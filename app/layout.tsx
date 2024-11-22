@@ -1,12 +1,12 @@
 import { ThemeProvider } from '@/components/theme-provider';
-import { Inter as Font_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
 import './globals.css';
+import localFont from 'next/font/local';
 
-const sans = Font_Sans({
+const sans = localFont({
+  src: '../public/fonts/InterVariable.ttf',
+  display: 'swap',
   variable: '--font-sans',
-  subsets: ['latin-ext'],
-  weight: 'variable',
 });
 
 export const metadata: Metadata = {
