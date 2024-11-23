@@ -11,6 +11,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { AudioPlayerButton } from '@/components/audio-player';
 
 export default function GamePage() {
   const { board, currentDestination, setBoard, effects, steps, chooseOption } =
@@ -120,11 +121,12 @@ export default function GamePage() {
           </div>
         </CardContent>
         <Separator />
-        <CardFooter className="flex py-4">
+        <CardFooter className="flex justify-between items-center py-4">
           <div className="text-muted items-start">
             <div>Steps: {steps}</div>
             <div>Effects: {effects.length}</div>
           </div>
+          <AudioPlayerButton destinationId={currentDestination.id} />
         </CardFooter>
       </Card>
     </div>
