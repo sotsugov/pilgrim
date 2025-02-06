@@ -100,10 +100,10 @@ export default function GamePage() {
                 scroll={false}
               >
                 <div className="flex gap-1">
-                  <span className="font-semibold flex-shrink-0 inline-flex items-center justify-center size-6 text-foreground">
+                  <span className="font-semibold shrink-0 inline-flex items-center justify-center size-6 text-foreground">
                     {index + 1}.
                   </span>
-                  <div className="flex-grow overflow-hidden">
+                  <div className="grow overflow-hidden">
                     {option.requirements.length > 0 && (
                       <span className="text-muted-foreground mr-1">
                         [

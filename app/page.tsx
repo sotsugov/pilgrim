@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center text-center">
-      <div className="bg-gradient-to-br from-muted-foreground to-foreground bg-clip-text text-7xl font-bold tracking-[-0.02em] text-transparent drop-shadow-sm uppercase">
+      <div className="bg-linear-to-br from-muted-foreground to-foreground bg-clip-text text-7xl font-bold tracking-[-0.02em] text-transparent drop-shadow-xs uppercase">
         Pilgrim
       </div>
       <div className="text-xl text-muted-foreground">

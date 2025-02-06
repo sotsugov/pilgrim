@@ -30,7 +30,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-6">
-            <main className="max-w-2xl mx-auto flex-grow flex">{children}</main>
+            <main className="max-w-2xl mx-auto grow flex">{children}</main>
             <Footer />
           </div>
         </ThemeProvider>

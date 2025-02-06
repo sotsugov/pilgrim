@@ -31,7 +31,7 @@ export default function GameLayout({
         </div>
       </header>
 
-      <main className="flex-grow container mx-auto px-4 py-8 animate-fade-up">
+      <main className="grow container mx-auto px-4 py-8 animate-fade-up">
         {children}
       </main>
     </div>
