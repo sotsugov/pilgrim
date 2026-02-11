@@ -2,14 +2,14 @@
 
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
-import { useGameStore } from '@/store/game-store';
+import { useSessionStore } from '@/store/session-store';
 
 export default function Home() {
   const router = useRouter();
-  const resetGame = useGameStore((state) => state.resetGame);
+  const clearSession = useSessionStore((state) => state.clearSession);
 
   const handleNewGame = () => {
-    resetGame();
+    clearSession();
     router.push('/game');
   };
 

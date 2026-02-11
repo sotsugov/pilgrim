@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/theme-provider';
+import { ConvexClientProvider } from '@/components/convex-client-provider';
 import type { Metadata } from 'next';
 import './globals.css';
 import localFont from 'next/font/local';
@@ -23,17 +24,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable}`} suppressHydrationWarning>
       <body className="font-sans antialiased bg-background text-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-6">
-            <main className="max-w-2xl mx-auto grow flex">{children}</main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+        <ConvexClientProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-6">
+              <main className="max-w-2xl mx-auto grow flex">{children}</main>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </ConvexClientProvider>
       </body>
     </html>
   );

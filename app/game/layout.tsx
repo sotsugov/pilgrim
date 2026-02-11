@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { useGameStore } from '@/store/game-store';
+import { useSessionStore } from '@/store/session-store';
 
 export default function GameLayout({
   children,
@@ -11,10 +11,10 @@ export default function GameLayout({
   children: React.ReactNode;
 }) {
   const router = useRouter();
-  const resetGame = useGameStore((state) => state.resetGame);
+  const clearSession = useSessionStore((state) => state.clearSession);
 
   const handleReset = () => {
-    resetGame();
+    clearSession();
     router.push('/game');
   };
 
